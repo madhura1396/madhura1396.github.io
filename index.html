@@ -58,10 +58,31 @@
 
   /* hero */
   .hero{padding:56px 0 30px;}
+  .hero-av{width:78px;height:78px;margin-bottom:24px;box-shadow:none;}
+  .tagline{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    font-weight:500;margin:0 0 18px;}
   .hero h1{font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.08;
-    letter-spacing:-.03em;margin:0 0 26px;max-width:16ch;}
-  .hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:0;}
-  .hero p b{color:var(--ink);font-weight:500;}
+    letter-spacing:-.03em;margin:0 0 24px;max-width:16ch;}
+  .hero .lede{font-size:19px;color:var(--muted);max-width:52ch;margin:0;}
+  .hero .lede b{color:var(--ink);font-weight:500;}
+  .stats{display:flex;gap:44px;flex-wrap:wrap;margin-top:40px;}
+  .stats b{font-family:var(--display);font-weight:600;font-size:23px;display:block;letter-spacing:-.01em;}
+  .stats span{font-size:13px;color:var(--muted);}
+
+  /* now status */
+  .now-sec{padding:64px 0 40px;border-top:1px solid var(--line);}
+  .nowlist{list-style:none;margin:0;padding:0;}
+  .nowlist li{display:grid;grid-template-columns:118px 1fr;gap:20px;padding:15px 0;
+    border-top:1px solid var(--line);}
+  .nowlist li:first-child{border-top:none;}
+  .nowlist li span{font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);padding-top:4px;}
+  @media(max-width:560px){.nowlist li{grid-template-columns:1fr;gap:2px;}}
+
+  /* writing tags */
+  .tags{margin:10px 0 0!important;}
+  .tags span{display:inline-block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;margin:0 7px 0 0;}
 
   /* section label */
   .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
@@ -150,12 +171,29 @@
 <div id="top">
 
   <section class="hero wrap rev">
+    <div class="avatar hero-av"><img src="images/ch7.jpg" alt="Madhura Anand"></div>
+    <p class="tagline">AI Engineer · Data Systems · Writer</p>
     <h1>From a curious kid to AI for a city.</h1>
-    <p>I'm Madhura — I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Here's how I got here.</p>
+    <p class="lede">I'm Madhura — I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Here's how I got here.</p>
+    <div class="stats">
+      <div><b>6+ yrs</b><span>AI, analytics &amp; data</span></div>
+      <div><b>3 countries</b><span>India · US · Canada</span></div>
+      <div><b>20+</b><span>AI practitioners interviewed</span></div>
+    </div>
+  </section>
+
+  <section class="now-sec wrap" id="now">
+    <p class="label rev">01 — Now</p>
+    <ul class="nowlist rev">
+      <li><span>Building</span> Voice agents &amp; RAG systems that people can actually trust</li>
+      <li><span>Writing</span> On AI governance &amp; social good at <a href="https://aitalks4good.substack.com" target="_blank" rel="noopener">aitalks4good</a></li>
+      <li><span>Based in</span> Cambridge, Ontario 🍁</li>
+      <li><span>Status</span> Open to new roles</li>
+    </ul>
   </section>
 
   <section class="journey wrap" id="story">
-    <p class="label rev">The journey</p>
+    <p class="label rev">02 — The journey</p>
 
     <div class="chapter rev">
       <div class="avatar"><img src="images/ch1.jpg" alt="Madhura as a child" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🇮🇳</div></div>
@@ -217,7 +255,7 @@
       </div>
     </div>
 
-    <div class="chapter rev" id="now">
+    <div class="chapter rev" id="next">
       <div class="avatar"><img src="images/ch7.jpg" alt="Madhura in Canada" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🍁</div></div>
       <div>
         <p class="meta">07 · What's next</p>
@@ -229,7 +267,7 @@
   </section>
 
   <section class="block wrap" id="work">
-    <p class="label rev">Things I build on the side</p>
+    <p class="label rev">03 — Things I build on the side</p>
     <div class="worktl">
       <div class="tnode rev">
         <h3><a href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">FinRAG</a></h3>
@@ -259,18 +297,21 @@
   </section>
 
   <section class="block wrap" id="writing">
-    <p class="label rev">Writing · aitalks4good</p>
+    <p class="label rev">04 — Writing · aitalks4good</p>
     <div class="item rev">
       <h3><a href="https://aitalks4good.substack.com/p/i-code-and-write-ai-policies-for" target="_blank" rel="noopener">Why developers should care about governance</a></h3>
       <p>I code and write AI policies for my job — the practitioner's case for why governance matters to the people building.</p>
+      <p class="tags"><span>Governance</span><span>Practice</span></p>
     </div>
     <div class="item rev">
       <h3><a href="https://aitalks4good.substack.com/p/what-model-drift-actually-means-and" target="_blank" rel="noopener">What "model drift" actually means</a></h3>
       <p>Why failing systems often give no warning signal — and how to see it coming before your model breaks.</p>
+      <p class="tags"><span>MLOps</span><span>Reliability</span></p>
     </div>
     <div class="item rev">
       <h3><a href="https://aitalks4good.substack.com/p/finras-warning-shot-the-end-of-move" target="_blank" rel="noopener">FINRA's warning shot</a></h3>
       <p>The end of "move fast and break things" in AI, and what regulatory enforcement changes.</p>
+      <p class="tags"><span>Regulation</span><span>Industry</span></p>
     </div>
     <p class="rev" style="margin-top:26px;"><a href="https://aitalks4good.substack.com/archive" target="_blank" rel="noopener">All articles →</a></p>
   </section>
