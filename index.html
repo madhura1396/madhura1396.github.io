@@ -4,584 +4,262 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Madhura Anand — AI Engineer</title>
-<meta name="description" content="Madhura Anand builds AI agents and data systems for people who are not technical. A journey from a curious kid in India to AI for a city in the US.">
+<meta name="description" content="Madhura Anand builds AI agents and data systems for people who are not technical. A journey from a curious kid in India to AI for a city.">
 <meta property="og:title" content="Madhura Anand — AI Engineer">
 <meta property="og:description" content="From a curious kid in India to building AI for a city. This is the journey.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F2E9;--paper-2:#EFEBDD;--card:#FCFBF6;
-    --ink:#26251F;--ink-soft:#5F5C54;
-    --plum:#7B3355;--plum-deep:#5E2340;--sage:#6E7F63;--amber:#C67B3A;
-    --rule:#E2DDCE;--rule-soft:#EBE7DA;
-    --shadow:22px 30px 70px -34px rgba(43,42,38,.5);
-    --wrap:1080px;
+    --bg:#FAFAF7;
+    --ink:#1A1917;
+    --muted:#8B877E;
+    --line:#E9E6DE;
+    --accent:#4C7A5A;      /* used only for the "open to work" dot */
+    --wrap:720px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;color:var(--ink);
-    background:
-      radial-gradient(1100px 620px at 82% -6%, rgba(123,51,85,.07), transparent 60%),
-      radial-gradient(900px 560px at -6% 8%, rgba(110,127,99,.08), transparent 55%),
-      var(--paper);
-    font-family:"Karla",system-ui,sans-serif;font-size:17px;line-height:1.65;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;letter-spacing:-.006em;
   }
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 30px;}
-  a{color:var(--plum);}
-  a:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:2px;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
+  a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);
+    transition:border-color .18s;}
+  a:hover{border-color:var(--ink);}
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
 
-  /* progress rail */
-  .rail{position:fixed;top:50%;right:22px;transform:translateY(-50%);z-index:30;
-    display:flex;flex-direction:column;gap:14px;}
-  .rail a{width:9px;height:9px;border-radius:50%;background:var(--rule);
-    transition:all .3s;position:relative;}
-  .rail a.on{background:var(--plum);transform:scale(1.35);}
-  .rail a::after{content:attr(data-l);position:absolute;right:20px;top:50%;
-    transform:translateY(-50%);font-family:"IBM Plex Mono",monospace;font-size:10px;
-    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
-    opacity:0;transition:opacity .25s;pointer-events:none;}
-  .rail a:hover::after{opacity:1;}
-  @media(max-width:820px){.rail{display:none;}}
+  /* header */
+  header.top{padding:34px 0;}
+  header.top .wrap{display:flex;align-items:center;gap:18px;}
+  header.top .name{font-weight:600;font-size:16px;border:none;letter-spacing:-.01em;}
+  header.top .spacer{margin-left:auto;}
+  header.top .otw{display:inline-flex;align-items:center;gap:8px;font-size:13px;
+    color:var(--muted);border:none;}
+  header.top .otw .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  header.top nav a{font-size:13px;color:var(--muted);border:none;margin-left:18px;}
+  header.top nav a:hover{color:var(--ink);}
+  @media(max-width:600px){header.top nav{display:none;}}
 
-  /* top bar */
-  .topbar{position:fixed;top:0;left:0;right:0;z-index:20;height:58px;
-    display:flex;align-items:center;
-    background:linear-gradient(var(--paper),rgba(245,242,233,0));}
-  .topbar .wrap{display:flex;align-items:center;gap:20px;width:100%;}
-  .topbar .name{font-family:"Fredoka",sans-serif;font-weight:600;font-size:18px;color:var(--ink);
-    text-decoration:none;margin-right:auto;letter-spacing:-.01em;}
-  .topbar a.lnk{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;
-    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);}
-  .topbar a.lnk:hover{color:var(--plum);}
-  .topbar a.otw{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
-    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
-    text-transform:uppercase;color:var(--sage);border:1px solid var(--sage);
-    border-radius:999px;padding:5px 12px;margin-right:4px;transition:all .18s;}
-  .topbar a.otw:hover{background:var(--sage);color:#fff;}
-  .topbar a.otw .pulse{width:8px;height:8px;border-radius:50%;background:var(--sage);
-    box-shadow:0 0 0 0 rgba(110,127,99,.6);animation:pulse 1.8s infinite;}
-  .topbar a.otw:hover .pulse{background:#fff;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(110,127,99,.5);}70%{box-shadow:0 0 0 7px rgba(110,127,99,0);}100%{box-shadow:0 0 0 0 rgba(110,127,99,0);}}
-  @media(max-width:560px){.topbar a.lnk{display:none;}}
+  /* hero */
+  .hero{padding:90px 0 40px;}
+  .hero h1{font-weight:600;font-size:clamp(34px,6vw,52px);line-height:1.08;
+    letter-spacing:-.03em;margin:0 0 26px;max-width:16ch;}
+  .hero p{font-size:19px;color:var(--muted);max-width:52ch;margin:0;}
+  .hero p b{color:var(--ink);font-weight:500;}
 
-  /* ===== HERO / OVERVIEW ===== */
-  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
-    padding:90px 0 40px;position:relative;}
-  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--sage);margin:0 0 20px;
-    display:inline-flex;align-items:center;gap:10px;}
-  .kicker::before{content:"";width:30px;height:1px;background:var(--sage);}
-  .hero h1{font-family:"Fredoka",sans-serif;font-weight:600;
-    font-size:clamp(46px,9vw,92px);line-height:.96;letter-spacing:-.03em;margin:0 0 24px;}
-  .hero h1 em{font-style:normal;color:var(--plum);font-weight:600;}
-  .hero .lede{font-size:clamp(19px,2.4vw,24px);max-width:30ch;color:var(--ink-soft);margin:0 0 44px;line-height:1.4;}
-  .hero .lede b{color:var(--ink);font-weight:600;}
-  .scrollcue{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--ink-soft);display:inline-flex;align-items:center;gap:10px;}
-  .scrollcue .dot{width:22px;height:34px;border:1.5px solid var(--ink-soft);border-radius:12px;
-    position:relative;}
-  .scrollcue .dot::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:6px;
-    background:var(--ink-soft);border-radius:2px;transform:translateX(-50%);
-    animation:cue 1.5s infinite;}
-  @keyframes cue{0%{opacity:0;transform:translate(-50%,0);}40%{opacity:1;}100%{opacity:0;transform:translate(-50%,10px);}}
+  /* section label */
+  .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
+    margin:0 0 46px;font-weight:500;}
 
-  /* journey map */
-  .map{margin:64px 0 0;}
-  .map-track{position:relative;display:flex;justify-content:space-between;gap:10px;
-    padding:44px 0 0;}
-  .map-track::before{content:"";position:absolute;top:63px;left:3%;right:3%;height:3px;
-    background:repeating-linear-gradient(90deg,var(--rule) 0 7px,transparent 7px 16px);}
-  .map-line{position:absolute;top:63px;left:3%;height:3px;background:var(--sage);width:0;
-    transition:width .1s linear;border-radius:3px;box-shadow:0 0 0 1px rgba(110,127,99,.15);}
-  .stop{position:relative;z-index:1;text-align:center;flex:1;min-width:0;text-decoration:none;}
-  .stop .pin{width:44px;height:44px;border-radius:50%;background:var(--card);
-    border:2.5px solid var(--rule);margin:0 auto 14px;display:flex;align-items:center;
-    justify-content:center;font-size:22px;transition:all .3s;}
-  .stop.on .pin{border-color:var(--plum);transform:scale(1.12);
-    box-shadow:0 0 0 6px rgba(123,51,85,.12),0 12px 26px -14px rgba(123,51,85,.6);}
-  .stop .yr{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--sage);
-    letter-spacing:.05em;display:block;margin-bottom:4px;font-weight:500;}
-  .stop .nm{font-family:"Fredoka",sans-serif;font-size:15px;font-weight:500;
-    color:var(--ink);line-height:1.25;}
-  .stop.on .nm{color:var(--plum);}
-  @media(max-width:640px){
-    .map-track{flex-wrap:wrap;gap:20px 0;padding:20px 0 0;}
-    .map-track::before,.map-line{display:none;}
-    .stop{flex:0 0 33.33%;}
-    .stop .pin{width:52px;height:52px;font-size:26px;}
+  /* journey */
+  .journey{padding:96px 0 40px;border-top:1px solid var(--line);}
+  .chapter{display:grid;grid-template-columns:88px 1fr;gap:34px;align-items:start;
+    padding:0 0 84px;}
+  .chapter:last-child{padding-bottom:0;}
+  .avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;background:var(--line);
+    position:sticky;top:40px;}
+  .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
+  .avatar .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    font-size:34px;background:#F0EDE5;}
+  .chapter .meta{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 10px;font-weight:500;}
+  .chapter h2{font-weight:600;font-size:24px;letter-spacing:-.02em;line-height:1.2;margin:0 0 6px;}
+  .chapter .when{font-size:14px;color:var(--muted);margin:0 0 16px;}
+  .chapter p{margin:0 0 14px;max-width:56ch;}
+  .chapter p:last-child{margin-bottom:0;}
+  @media(max-width:600px){
+    .chapter{grid-template-columns:1fr;gap:18px;}
+    .avatar{position:static;width:72px;height:72px;}
   }
 
-  /* ===== CHAPTERS ===== */
-  .chapter{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding:0;}
-  .chapter>.wrap{display:contents;}        /* break out of the centered wrap so art goes edge-to-edge */
-  .story{display:flex;flex-direction:column;justify-content:center;
-    padding:90px clamp(30px,6vw,96px);order:1;}
-  .fig{order:2;position:relative;}
-  .chapter:nth-child(even) .story{order:2;}
-  .chapter:nth-child(even) .fig{order:1;}
-  @media(max-width:860px){
-    .chapter{grid-template-columns:1fr;min-height:auto;}
-    .fig,.chapter:nth-child(even) .fig{order:0;}
-    .story,.chapter:nth-child(even) .story{order:1;padding:40px 30px 64px;}
-  }
-
-  /* full-bleed cinematic art */
-  .frame{position:relative;width:100%;height:100%;min-height:100vh;overflow:hidden;}
-  .frame img{width:100%;height:116%;object-fit:cover;object-position:center 30%;display:block;
-    position:absolute;top:-8%;left:0;will-change:transform;}
-  /* seam: melt the image into the paper on the side facing the text */
-  .frame::after{content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(to right, var(--paper) 0%, rgba(245,242,233,0) 16%);}
-  .chapter:nth-child(even) .frame::after{
-    background:linear-gradient(to left, var(--paper) 0%, rgba(245,242,233,0) 16%);}
-  .frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
-    justify-content:center;gap:12px;color:var(--ink-soft);text-align:center;padding:20px;
-    background:radial-gradient(120% 80% at 50% 40%, var(--paper-2), var(--paper));}
-  .frame .ph .emo{font-size:72px;filter:saturate(.9);}
-  .frame .ph .cap{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
-    text-transform:uppercase;opacity:.7;}
-  .frame .ph .sub{font-size:12px;max-width:22ch;opacity:.6;}
-  .fig .badge{display:none;}    /* chapter number lives in the step label now */
-  @media(max-width:860px){
-    .frame{min-height:62vh;}
-    .frame::after,.chapter:nth-child(even) .frame::after{
-      background:linear-gradient(to top, var(--paper) 0%, rgba(245,242,233,0) 20%);}
-  }
-
-  .story .step{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--sage);margin:0 0 14px;}
-  .story h2{font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(30px,4vw,44px);
-    line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;}
-  .story .yr{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--amber);
-    letter-spacing:.05em;margin:0 0 18px;}
-  .story p{margin:0 0 16px;max-width:52ch;color:var(--ink);}
-  .story p.quiet{color:var(--ink-soft);}
-  .story .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
-  .story .tags span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
-    border:1px solid var(--rule);border-radius:999px;padding:6px 13px;background:var(--card);}
-
-  /* reveal */
-  .rev{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1);}
-  .rev.in{opacity:1;transform:none;}
-  .rev.d1{transition-delay:.12s;}
-  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none;}
-    html{scroll-behavior:auto;}.scrollcue .dot::after{animation:none;}}
-
-  /* ===== NOW / PROJECTS ===== */
-  .now{padding:90px 0 30px;border-top:1px solid var(--rule);}
-  .now .head{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--sage);margin:0 0 8px;}
-  .now h2{font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(30px,4vw,42px);
-    letter-spacing:-.02em;margin:0 0 40px;max-width:20ch;line-height:1.08;}
-  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-  @media(max-width:760px){.pgrid{grid-template-columns:1fr;}}
-  .project{background:var(--card);border:1px solid var(--rule);border-radius:18px;
-    padding:26px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s;}
-  .project:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D6CFBB;}
-  .project h3{font-family:"Fredoka",sans-serif;font-weight:600;font-size:24px;margin:0 0 6px;}
-  .project .why{font-family:"Fredoka",sans-serif;font-style:italic;font-size:17px;color:var(--plum);
-    margin:0 0 14px;line-height:1.4;}
-  .project p{margin:0 0 14px;font-size:15.5px;}
-  .project .tools{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);
-    line-height:1.7;margin:auto 0 12px;}
-  .project a.out{font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-decoration:none;
-    color:var(--plum);font-weight:500;align-self:flex-start;display:inline-flex;gap:6px;align-items:center;}
-  .project a.out::after{content:"→";transition:transform .18s;}
-  .project a.out:hover::after{transform:translateX(4px);}
-
-  /* skills */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:26px;}
-  .skills div{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px 22px;}
-  .skills h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--sage);font-weight:500;margin:0 0 10px;}
-  .skills p{margin:0;font-size:15px;color:var(--ink);line-height:1.55;}
-
-  /* writing */
-  .writing{padding:90px 0;border-top:1px solid var(--rule);}
-  .writing .head{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
-    text-transform:uppercase;color:var(--sage);margin:0 0 8px;}
-  .writing h2{font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(30px,4vw,42px);
-    letter-spacing:-.02em;margin:0 0 10px;}
-  .writing .wintro{color:var(--ink-soft);max-width:52ch;margin:0 0 40px;}
-  .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  @media(max-width:820px){.wgrid{grid-template-columns:1fr;}}
-  .article{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);
-    background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:24px;
-    transition:transform .2s,box-shadow .2s,border-color .2s;}
-  .article:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D6CFBB;}
-  .article .wtag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
-  .article h3{font-family:"Fredoka",sans-serif;font-weight:600;font-size:22px;line-height:1.2;margin:0 0 12px;}
-  .article p{font-size:15px;color:var(--ink-soft);margin:0 0 18px;}
-  .article .wread{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--plum);
-    font-weight:500;margin-top:auto;}
-  .allposts{display:inline-block;margin-top:28px;font-family:"IBM Plex Mono",monospace;
-    font-size:13px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--plum);
-    padding-bottom:3px;}
-  .allposts:hover{color:var(--plum);}
+  /* simple lists */
+  .block{padding:96px 0 40px;border-top:1px solid var(--line);}
+  .item{padding:26px 0;border-top:1px solid var(--line);}
+  .item:first-of-type{border-top:none;}
+  .item h3{font-weight:600;font-size:19px;letter-spacing:-.01em;margin:0 0 4px;}
+  .item h3 a{border:none;}
+  .item h3 a:hover{border-bottom:1px solid var(--ink);}
+  .item .sub{color:var(--muted);font-size:15px;margin:0 0 8px;}
+  .item p{margin:0;max-width:60ch;color:var(--ink);}
+  .item .role{font-size:13px;color:var(--muted);float:right;margin-left:20px;}
 
   /* contact */
-  .contact{padding:90px 0;border-top:1px solid var(--rule);text-align:center;}
-  .contact .pitch{font-family:"Fredoka",sans-serif;font-weight:600;font-size:clamp(28px,5vw,46px);
-    letter-spacing:-.02em;line-height:1.12;max-width:18ch;margin:0 auto 34px;}
-  .contact .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-  .contact .links a{font-family:"IBM Plex Mono",monospace;font-size:13px;text-decoration:none;
-    color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:10px 20px;
-    background:var(--card);transition:all .18s;}
-  .contact .links a:hover{border-color:var(--plum);color:var(--plum);transform:translateY(-2px);
-    box-shadow:0 8px 20px -12px rgba(123,51,85,.6);}
-  footer{padding:26px 0 60px;text-align:center;font-family:"IBM Plex Mono",monospace;
-    font-size:11.5px;color:var(--ink-soft);letter-spacing:.05em;}
+  .contact{padding:96px 0 40px;border-top:1px solid var(--line);}
+  .contact p.pitch{font-weight:500;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em;
+    line-height:1.25;max-width:20ch;margin:0 0 30px;}
+  .contact .links a{font-size:15px;margin-right:22px;}
+  footer{padding:70px 0;color:var(--muted);font-size:13px;}
+
+  .rev{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
+  .rev.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}.avatar{position:static;}}
 </style>
 </head>
 <body>
 
-<div class="topbar">
+<header class="top">
   <div class="wrap">
     <a class="name" href="#top">Madhura Anand</a>
-    <a class="otw" href="#c7"><span class="pulse"></span>Open to work</a>
-    <a class="lnk" href="#now">Work</a>
-    <a class="lnk" href="#writing">Writing</a>
-    <a class="lnk" href="#contact">Contact</a>
-  </div>
-</div>
-
-<nav class="rail" id="rail"></nav>
-
-<!-- ===== HERO + OVERVIEW ===== -->
-<header class="hero" id="top">
-  <div class="wrap">
-    <p class="kicker rev">The short version of a long road</p>
-    <h1 class="rev">From a curious kid<br>to <em>AI for a city</em>.</h1>
-    <p class="lede rev d1">I'm Madhura — I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Here's how I got here.</p>
-
-    <div class="map rev d1">
-      <div class="map-track" id="mapTrack">
-        <div class="map-line" id="mapLine"></div>
-        <a class="stop" href="#c1"><span class="pin">🇮🇳</span><span class="yr">school</span><span class="nm">Curious kid,<br>India</span></a>
-        <a class="stop" href="#c2"><span class="pin">🎓</span><span class="yr">college</span><span class="nm">ML for<br>justice</span></a>
-        <a class="stop" href="#c3"><span class="pin">🛠️</span><span class="yr">2018</span><span class="nm">Data<br>engineer</span></a>
-        <a class="stop" href="#c4"><span class="pin">✈️</span><span class="yr">2021</span><span class="nm">The pivot<br>to the US</span></a>
-        <a class="stop" href="#c5"><span class="pin">📚</span><span class="yr">2022</span><span class="nm">Learning<br>for schools</span></a>
-        <a class="stop" href="#c6"><span class="pin">🏛️</span><span class="yr">2023</span><span class="nm">AI for<br>a city</span></a>
-        <a class="stop" href="#c7"><span class="pin">🍁</span><span class="yr">now</span><span class="nm">Canada,<br>open to work</span></a>
-      </div>
-    </div>
-
-    <p class="scrollcue rev d1" style="margin-top:44px;"><span class="dot"></span> Scroll to walk the journey</p>
+    <span class="spacer"></span>
+    <a class="otw" href="#now"><span class="dot"></span>Open to work</a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<!-- ===== CHAPTER 1 ===== -->
-<section class="chapter" id="c1" data-l="India">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">01</div>
-      <div class="frame">
-        <img src="images/ch1.jpg" alt="Madhura as a child in India" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">🇮🇳</span><span class="cap">Your render here</span>
-          <span class="sub">A curious kid, school uniform, first computer</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter one · Where it starts</p>
-      <h2>A curious kid in India</h2>
-      <p>Growing up in India, school was where the questions started — and where a computer first felt less like a machine and more like a place to build things.</p>
-      <p>My first language was <b>Java</b>. Loops and logic, the small thrill of making something run. I didn't know the word "engineer" yet. I just knew I wanted to make the thing work.</p>
-      <div class="tags"><span>First code: Java</span><span>School, India</span></div>
-    </div>
-  </div>
-</section>
+<div id="top">
 
-<!-- ===== CHAPTER 2 ===== -->
-<section class="chapter" id="c2" data-l="College">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">02</div>
-      <div class="frame">
-        <img src="images/ch2.jpg" alt="Madhura in college" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">🎓</span><span class="cap">Your render here</span>
-          <span class="sub">College student, laptop, campus</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter two · The first real thing</p>
-      <h2>Teaching a machine to find justice</h2>
-      <p class="yr">Computer Engineering · University of Mumbai</p>
-      <p>In college I built an ML model to help identify relevant judicial cases — surfacing the most recent, most relevant precedent from a pile of legal text instead of leaving someone to search by hand.</p>
-      <p class="quiet">It was the first time I saw the shape of what I'd keep doing: putting AI in front of a real problem for people who don't have time to be technical about it.</p>
-      <div class="tags"><span>Machine learning</span><span>NLP</span><span>Legal-tech</span></div>
-    </div>
-  </div>
-</section>
+  <section class="hero wrap rev">
+    <h1>From a curious kid to AI for a city.</h1>
+    <p>I'm Madhura — I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Here's how I got here.</p>
+  </section>
 
-<!-- ===== CHAPTER 3 ===== -->
-<section class="chapter" id="c3" data-l="Accenture">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">03</div>
-      <div class="frame">
-        <img src="images/ch3.jpg" alt="Madhura as a data engineer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">🛠️</span><span class="cap">Your render here</span>
-          <span class="sub">Young professional, first job, office</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter three · Learning to ship</p>
-      <h2>Building the plumbing</h2>
-      <p class="yr">Data Engineer · Accenture, Mumbai · 2018–2021</p>
-      <p>My first job was data engineering — 50+ production pipelines moving data across 20+ SAP and non-SAP systems, with reconciliation and validation written in so failures surfaced instead of landing in someone's report.</p>
-      <p class="quiet">This is where I learned that the unglamorous part — the data being <em>right</em> — is the whole job.</p>
-      <div class="tags"><span>SAP BODS</span><span>Pipelines</span><span>Power BI</span></div>
-    </div>
-  </div>
-</section>
+  <section class="journey wrap" id="story">
+    <p class="label rev">The journey</p>
 
-<!-- ===== CHAPTER 4 ===== -->
-<section class="chapter" id="c4" data-l="The pivot">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">04</div>
-      <div class="frame">
-        <img src="images/ch4.jpg" alt="Madhura moving to the USA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">✈️</span><span class="cap">Your render here</span>
-          <span class="sub">Suitcase, passport, a big move</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter four · The plan changed</p>
-      <h2>I wanted to be a tech founder. I moved instead.</h2>
-      <p class="yr">Moved to the USA · August 2021</p>
-      <p>The plan was an MBA — I always wanted to become a tech entrepreneur, to build something of my own. Life had other timing. Instead of business school, I moved to the United States for a Master's in Computer Science at Syracuse University.</p>
-      <p class="quiet">The founder instinct didn't go away. It just found a different door.</p>
-      <div class="tags"><span>MS Computer Science</span><span>Syracuse University</span><span>New country</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CHAPTER 5 ===== -->
-<section class="chapter" id="c5" data-l="WCNY">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">05</div>
-      <div class="frame">
-        <img src="images/ch5.jpg" alt="Madhura at WCNY internship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">📚</span><span class="cap">Your render here</span>
-          <span class="sub">Building learning tools, classrooms</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter five · Building for others</p>
-      <h2>Custom learning, for local schools</h2>
-      <p class="yr">Intern · WCNY · December 2022</p>
-      <p>At WCNY I helped build custom learning courses for local schools — technology in service of teachers and kids, not the other way around.</p>
-      <p class="quiet">It cemented the thread running through everything: the person on the other end usually isn't technical, and the work is only good if it works for them.</p>
-      <div class="tags"><span>EdTech</span><span>Course building</span><span>Public good</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CHAPTER 6 ===== -->
-<section class="chapter" id="c6" data-l="Rochester">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">06</div>
-      <div class="frame">
-        <img src="images/ch6.jpg" alt="Madhura at the City of Rochester" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">🏛️</span><span class="cap">Your render here</span>
-          <span class="sub">Confident professional, city hall</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter six · Where it landed</p>
-      <h2>AI for a city</h2>
-      <p class="yr">Data Analyst · City of Rochester, New York · 2023–2026</p>
-      <p>I built AI and data systems inside government — a four-node agent on AWS Bedrock, retrieval that kept policy answers grounded in real documents, and the judgment to escalate to a human when the machine shouldn't decide alone.</p>
-      <p class="quiet">Scoped with non-technical staff, built for records retention and auditability from day one. The kid who wanted to make the thing work got to make it work for a whole city.</p>
-      <p class="quiet">I also took it to the stage — a featured speaker at <a href="https://flowercity.ai/" target="_blank" rel="noopener">Flower City AI</a>, talking about the technical and the policy sides of deploying AI people can trust.</p>
-      <div class="tags"><span>AWS Bedrock</span><span>RAG</span><span>Public sector</span><span>Conference speaker</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CHAPTER 7 ===== -->
-<section class="chapter" id="c7" data-l="Now">
-  <div class="wrap">
-    <div class="fig rev">
-      <div class="badge">07</div>
-      <div class="frame">
-        <img src="images/ch7.jpg" alt="Madhura in Canada, open to new opportunities" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-        <div class="ph" style="display:none">
-          <span class="emo">🍁</span><span class="cap">Your render here</span>
-          <span class="sub">A fresh start in Canada, looking ahead</span>
-        </div>
-      </div>
-    </div>
-    <div class="story rev d1">
-      <p class="step">Chapter seven · What's next</p>
-      <h2>New country, open to what's next</h2>
-      <p class="yr">Cambridge, Ontario · Canada · Open to work</p>
-      <p>My time with the City of Rochester has wrapped, and I've made another move — this time to Canada, as a permanent resident, ready for the next chapter.</p>
-      <p class="quiet">I'm looking for a team building AI that real people have to trust — agents, RAG, data systems, the unglamorous parts done right. If that's you, the story's still being written. Let's talk.</p>
-      <div class="tags"><span>Open to work</span><span>Canada · remote</span><span>AI &amp; data</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== NOW / PROJECTS ===== -->
-<section class="now" id="now">
-  <div class="wrap">
-    <p class="head rev">And on the side — the founder instinct, shipping</p>
-    <h2 class="rev">Things I build when nobody assigns them</h2>
-    <div class="pgrid">
-      <div class="project rev">
-        <h3>FinRAG</h3>
-        <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
-        <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; pattern questions go to vector search. The model formats the answer, it never calculates it — and everything runs locally, no external API.</p>
-        <p class="tools">FastAPI · PostgreSQL · pgvector · Ollama · sentence-transformers</p>
-        <a class="out" href="https://github.com/madhura1396/finrag">Code and decision log</a>
-      </div>
-      <div class="project rev d1">
-        <h3>PR Review Agent</h3>
-        <p class="why">Four opinions on one diff are worse than one, unless something reconciles them.</p>
-        <p>A multi-agent code reviewer: an orchestrator routes chunks to specialists for security, performance and style, then a critic reconciles, de-duplicates and assigns severity before anything posts. Traced with LangSmith, evaluated with DeepEval.</p>
-        <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval</p>
-        <a class="out" href="https://github.com/madhura1396/pr-review-agent">Code</a>
-      </div>
-      <div class="project rev">
-        <h3>Voice receptionist</h3>
-        <p class="why">A flooded basement should never reach an AI.</p>
-        <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work. A webhook turns call audio into structured booking records.</p>
-        <p class="tools">Retell · Cloudflare Workers · Airtable</p>
-      </div>
-      <div class="project rev d1">
-        <h3>Portfolio agent</h3>
-        <p class="why">Retrieval, summarising and delivery should fail separately.</p>
-        <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English portfolio digests over Telegram. Scheduled jobs stay independent, so a delivery hiccup never takes the summary down with it.</p>
-        <p class="tools">Claude · MCP · APScheduler · Telegram Bot API</p>
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch1.jpg" alt="Madhura as a child" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🇮🇳</div></div>
+      <div>
+        <p class="meta">01 · Where it starts</p>
+        <h2>A curious kid in India</h2>
+        <p class="when">School · India</p>
+        <p>School was where the questions started — and where a computer first felt less like a machine and more like a place to build things. My first language was <b>Java</b>; loops, logic, the small thrill of making something run.</p>
       </div>
     </div>
 
-    <div class="skills">
-      <div class="rev"><h4>Agents &amp; LLMs</h4><p>LangGraph, LangChain, MCP, AWS Bedrock, RAG &amp; vector search, evaluation &amp; tracing</p></div>
-      <div class="rev d1"><h4>Data</h4><p>SQL, PostgreSQL, pgvector, dimensional modelling, SAP BODS, pandas, scikit-learn</p></div>
-      <div class="rev"><h4>Building &amp; shipping</h4><p>Python, FastAPI, Docker, AWS, GitHub Actions, Power BI, Power Automate</p></div>
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch2.jpg" alt="Madhura in college" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🎓</div></div>
+      <div>
+        <p class="meta">02 · The first real thing</p>
+        <h2>Teaching a machine to find justice</h2>
+        <p class="when">Computer Engineering · University of Mumbai</p>
+        <p>In college I built an ML model to surface relevant judicial cases — pulling the most recent, most relevant precedent from a pile of legal text instead of leaving someone to search by hand. The first time I saw the shape of what I'd keep doing.</p>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- ===== WRITING ===== -->
-<section class="writing" id="writing">
-  <div class="wrap">
-    <p class="head rev">Writing · aitalks4good</p>
-    <h2 class="rev">I write about where AI belongs</h2>
-    <p class="wintro rev d1">AI governance, drift, and social good — for practitioners who ship, not just theorise.</p>
-    <div class="wgrid">
-      <a class="article rev" href="https://aitalks4good.substack.com/p/i-code-and-write-ai-policies-for">
-        <span class="wtag">Featured</span>
-        <h3>Why developers should actually care about governance</h3>
-        <p>I code and write AI policies for my job — here's the practitioner's case for why governance frameworks matter to the people building.</p>
-        <span class="wread">Read on Substack →</span>
-      </a>
-      <a class="article rev d1" href="https://aitalks4good.substack.com/p/what-model-drift-actually-means-and">
-        <span class="wtag">Featured</span>
-        <h3>What "model drift" actually means</h3>
-        <p>Why failing systems often give no warning signal — and how to see it coming before your model breaks.</p>
-        <span class="wread">Read on Substack →</span>
-      </a>
-      <a class="article rev" href="https://aitalks4good.substack.com/p/finras-warning-shot-the-end-of-move">
-        <span class="wtag">Featured</span>
-        <h3>FINRA's warning shot</h3>
-        <p>The end of "move fast and break things" in AI — how regulatory enforcement is pushing the industry toward accountability.</p>
-        <span class="wread">Read on Substack →</span>
-      </a>
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch3.jpg" alt="Madhura as a data engineer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🛠️</div></div>
+      <div>
+        <p class="meta">03 · Learning to ship</p>
+        <h2>Building the plumbing</h2>
+        <p class="when">Data Engineer · Accenture, Mumbai · 2018–2021</p>
+        <p>My first job — 50+ production pipelines moving data across 20+ systems, with reconciliation and validation written in so failures surfaced instead of hiding. Where I learned that the data being <b>right</b> is the whole job.</p>
+      </div>
     </div>
-    <a class="allposts rev d1" href="https://aitalks4good.substack.com/archive">All articles on Substack →</a>
-  </div>
-</section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
-  <div class="wrap">
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch4.jpg" alt="Madhura moving abroad" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">✈️</div></div>
+      <div>
+        <p class="meta">04 · The plan changed</p>
+        <h2>I wanted to be a founder. I moved instead.</h2>
+        <p class="when">Moved to the USA · August 2021</p>
+        <p>The plan was an MBA — I always wanted to build something of my own. Life had other timing. Instead of business school, I moved to the US for a Master's in Computer Science at Syracuse University. The founder instinct didn't leave; it found a different door.</p>
+      </div>
+    </div>
+
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch5.jpg" alt="Madhura at WCNY" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">📚</div></div>
+      <div>
+        <p class="meta">05 · Building for others</p>
+        <h2>Custom learning, for local schools</h2>
+        <p class="when">Intern · WCNY · December 2022</p>
+        <p>I helped build custom learning courses for local schools — technology in service of teachers and kids. It cemented the thread through everything: the person on the other end usually isn't technical, and the work is only good if it works for them.</p>
+      </div>
+    </div>
+
+    <div class="chapter rev">
+      <div class="avatar"><img src="images/ch6.jpg" alt="Madhura at the City of Rochester" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🏛️</div></div>
+      <div>
+        <p class="meta">06 · Where it landed</p>
+        <h2>AI for a city</h2>
+        <p class="when">Data Analyst · City of Rochester, New York · 2023–2026</p>
+        <p>I built AI and data systems inside government — a four-node agent on AWS Bedrock, retrieval that kept policy answers grounded in real documents, and the judgment to escalate to a human when the machine shouldn't decide alone. I also spoke at <a href="https://flowercity.ai/" target="_blank" rel="noopener">Flower City AI</a> on deploying AI people can trust.</p>
+      </div>
+    </div>
+
+    <div class="chapter rev" id="now">
+      <div class="avatar"><img src="images/ch7.jpg" alt="Madhura in Canada" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🍁</div></div>
+      <div>
+        <p class="meta">07 · What's next</p>
+        <h2>New country, open to what's next</h2>
+        <p class="when">Cambridge, Ontario · Canada · Open to work</p>
+        <p>My time with the City has wrapped, and I've moved to Canada as a permanent resident. I'm looking for a team building AI that real people have to trust — agents, RAG, data systems, the unglamorous parts done right. <a href="#contact">Let's talk.</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap" id="work">
+    <p class="label rev">Selected work</p>
+    <div class="item rev">
+      <h3><a href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">FinRAG</a></h3>
+      <p class="sub">FastAPI · PostgreSQL · pgvector · Ollama</p>
+      <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; patterns go to vector search. Runs fully local — no external API.</p>
+    </div>
+    <div class="item rev">
+      <h3><a href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">PR Review Agent</a></h3>
+      <p class="sub">LangGraph · LangChain · LangSmith · DeepEval</p>
+      <p>A multi-agent code reviewer: specialists for security, performance and style; a critic reconciles, de-duplicates and assigns severity before anything posts. Traced and evaluated so prompt changes have measured effects.</p>
+    </div>
+    <div class="item rev">
+      <h3>Voice receptionist</h3>
+      <p class="sub">Retell · Cloudflare Workers · Airtable</p>
+      <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work.</p>
+    </div>
+    <div class="item rev">
+      <h3>Portfolio agent</h3>
+      <p class="sub">Claude · MCP · APScheduler · Telegram</p>
+      <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English digests over Telegram. Jobs stay independent, so a delivery hiccup never takes the summary down.</p>
+    </div>
+  </section>
+
+  <section class="block wrap" id="writing">
+    <p class="label rev">Writing · aitalks4good</p>
+    <div class="item rev">
+      <h3><a href="https://aitalks4good.substack.com/p/i-code-and-write-ai-policies-for" target="_blank" rel="noopener">Why developers should care about governance</a></h3>
+      <p>I code and write AI policies for my job — the practitioner's case for why governance matters to the people building.</p>
+    </div>
+    <div class="item rev">
+      <h3><a href="https://aitalks4good.substack.com/p/what-model-drift-actually-means-and" target="_blank" rel="noopener">What "model drift" actually means</a></h3>
+      <p>Why failing systems often give no warning signal — and how to see it coming before your model breaks.</p>
+    </div>
+    <div class="item rev">
+      <h3><a href="https://aitalks4good.substack.com/p/finras-warning-shot-the-end-of-move" target="_blank" rel="noopener">FINRA's warning shot</a></h3>
+      <p>The end of "move fast and break things" in AI, and what regulatory enforcement changes.</p>
+    </div>
+    <p class="rev" style="margin-top:26px;"><a href="https://aitalks4good.substack.com/archive" target="_blank" rel="noopener">All articles →</a></p>
+  </section>
+
+  <section class="contact wrap" id="contact">
     <p class="pitch rev">If you have a problem that's mostly people and partly software, I'd like to hear it.</p>
-    <div class="links rev d1">
-      <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
-      <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
-      <a href="https://github.com/madhura1396">GitHub</a>
-      <a href="https://aitalks4good.substack.com">Writing</a>
-    </div>
-  </div>
-</section>
+    <p class="links rev">
+      <a href="mailto:madhura.anand@outlook.com">Email</a>
+      <a href="https://www.linkedin.com/in/madhura-anand" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/madhura1396" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://aitalks4good.substack.com" target="_blank" rel="noopener">Writing</a>
+    </p>
+  </section>
 
-<footer>Canadian Permanent Resident · Cambridge, Ontario · Certified Power BI Data Analyst · CSPO</footer>
+  <footer class="wrap">Canadian Permanent Resident · Cambridge, Ontario</footer>
+
+</div>
 
 <script>
-  // reveal on scroll
   var revs=document.querySelectorAll('.rev');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){
       es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-    },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+    },{threshold:.14,rootMargin:'0px 0px -6% 0px'});
     revs.forEach(function(e){io.observe(e);});
   } else { revs.forEach(function(e){e.classList.add('in');}); }
-
-  // build progress rail from chapters
-  var chapters=[].slice.call(document.querySelectorAll('.chapter'));
-  var rail=document.getElementById('rail');
-  chapters.forEach(function(c){
-    var a=document.createElement('a');
-    a.href='#'+c.id; a.setAttribute('data-l',c.getAttribute('data-l'));
-    rail.appendChild(a);
-  });
-  var dots=[].slice.call(rail.children);
-
-  // map line + rail active + parallax
-  var mapLine=document.getElementById('mapLine');
-  var track=document.getElementById('mapTrack');
-  var stops=[].slice.call(document.querySelectorAll('.stop'));
-  function onScroll(){
-    // active chapter
-    var idx=-1, mid=window.innerHeight*0.5;
-    chapters.forEach(function(c,i){
-      var r=c.getBoundingClientRect();
-      if(r.top<=mid && r.bottom>=mid) idx=i;
-    });
-    dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});
-    stops.forEach(function(s,i){s.classList.toggle('on',i<=idx);});
-    // journey line fills with overall scroll progress
-    var h=document.body.scrollHeight-window.innerHeight;
-    var p=Math.min(1,Math.max(0,window.scrollY/h));
-    if(mapLine){mapLine.style.width=(96*p)+'%';}
-    // parallax: drift the image within its frame for a living, cinematic feel
-    document.querySelectorAll('.chapter').forEach(function(c){
-      var img=c.querySelector('.frame img'); if(!img)return;
-      var r=c.getBoundingClientRect();
-      var off=(r.top+r.height/2-window.innerHeight/2)/window.innerHeight;
-      img.style.transform='translateY('+(off*40)+'px)';
-    });
-  }
-  var ticking=false;
-  window.addEventListener('scroll',function(){
-    if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false;});ticking=true;}
-  },{passive:true});
-  onScroll();
 </script>
 </body>
 </html>
