@@ -58,6 +58,15 @@
   .topbar a.lnk{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;
     text-transform:uppercase;text-decoration:none;color:var(--ink-soft);}
   .topbar a.lnk:hover{color:var(--plum);}
+  .topbar a.otw{display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--sage);border:1px solid var(--sage);
+    border-radius:999px;padding:5px 12px;margin-right:4px;transition:all .18s;}
+  .topbar a.otw:hover{background:var(--sage);color:#fff;}
+  .topbar a.otw .pulse{width:8px;height:8px;border-radius:50%;background:var(--sage);
+    box-shadow:0 0 0 0 rgba(110,127,99,.6);animation:pulse 1.8s infinite;}
+  .topbar a.otw:hover .pulse{background:#fff;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(110,127,99,.5);}70%{box-shadow:0 0 0 7px rgba(110,127,99,0);}100%{box-shadow:0 0 0 0 rgba(110,127,99,0);}}
   @media(max-width:560px){.topbar a.lnk{display:none;}}
 
   /* ===== HERO / OVERVIEW ===== */
@@ -222,6 +231,7 @@
 <div class="topbar">
   <div class="wrap">
     <a class="name" href="#top">Madhura Anand</a>
+    <a class="otw" href="#c7"><span class="pulse"></span>Open to work</a>
     <a class="lnk" href="#now">Work</a>
     <a class="lnk" href="#writing">Writing</a>
     <a class="lnk" href="#contact">Contact</a>
@@ -246,6 +256,7 @@
         <a class="stop" href="#c4"><span class="pin">✈️</span><span class="yr">2021</span><span class="nm">The pivot<br>to the US</span></a>
         <a class="stop" href="#c5"><span class="pin">📚</span><span class="yr">2022</span><span class="nm">Learning<br>for schools</span></a>
         <a class="stop" href="#c6"><span class="pin">🏛️</span><span class="yr">2023</span><span class="nm">AI for<br>a city</span></a>
+        <a class="stop" href="#c7"><span class="pin">🍁</span><span class="yr">now</span><span class="nm">Canada,<br>open to work</span></a>
       </div>
     </div>
 
@@ -388,10 +399,34 @@
     <div class="story rev d1">
       <p class="step">Chapter six · Where it landed</p>
       <h2>AI for a city</h2>
-      <p class="yr">Data Analyst · City of Rochester, New York · 2023–present</p>
-      <p>Now I build AI and data systems inside government — a four-node agent on AWS Bedrock, retrieval that keeps policy answers grounded in real documents, and the judgment to escalate to a human when the machine shouldn't decide alone.</p>
-      <p class="quiet">Scoped with non-technical staff, built for records retention and auditability from day one. The kid who wanted to make the thing work now makes it work for a whole city.</p>
+      <p class="yr">Data Analyst · City of Rochester, New York · 2023–2026</p>
+      <p>I built AI and data systems inside government — a four-node agent on AWS Bedrock, retrieval that kept policy answers grounded in real documents, and the judgment to escalate to a human when the machine shouldn't decide alone.</p>
+      <p class="quiet">Scoped with non-technical staff, built for records retention and auditability from day one. The kid who wanted to make the thing work got to make it work for a whole city.</p>
       <div class="tags"><span>AWS Bedrock</span><span>RAG</span><span>Public sector</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 7 ===== -->
+<section class="chapter" id="c7" data-l="Now">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">07</div>
+      <div class="frame">
+        <img src="images/ch7.png" alt="Madhura in Canada, open to new opportunities" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">🍁</span><span class="cap">Your render here</span>
+          <span class="sub">A fresh start in Canada, looking ahead</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter seven · What's next</p>
+      <h2>New country, open to what's next</h2>
+      <p class="yr">Cambridge, Ontario · Canada · Open to work</p>
+      <p>My time with the City of Rochester has wrapped, and I've made another move — this time to Canada, as a permanent resident, ready for the next chapter.</p>
+      <p class="quiet">I'm looking for a team building AI that real people have to trust — agents, RAG, data systems, the unglamorous parts done right. If that's you, the story's still being written. Let's talk.</p>
+      <div class="tags"><span>Open to work</span><span>Canada · remote</span><span>AI &amp; data</span></div>
     </div>
   </div>
 </section>
