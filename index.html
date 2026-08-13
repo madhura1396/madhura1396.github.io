@@ -4,350 +4,526 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Madhura Anand — AI Engineer</title>
-<meta name="description" content="Madhura Anand builds AI agents and data systems for people who are not technical. Six years across AI engineering, analytics and data engineering.">
+<meta name="description" content="Madhura Anand builds AI agents and data systems for people who are not technical. A journey from a curious kid in India to AI for a city in the US.">
 <meta property="og:title" content="Madhura Anand — AI Engineer">
-<meta property="og:description" content="I build AI agents and data systems for people who are not technical.">
+<meta property="og:description" content="From a curious kid in India to building AI for a city. This is the journey.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F2E9;
-    --paper-2:#FBFAF5;
-    --card:#FCFBF6;
-    --ink:#26251F;
-    --ink-soft:#5F5C54;
-    --plum:#7B3355;
-    --plum-deep:#5E2340;
-    --sage:#6E7F63;
-    --rule:#E2DDCE;
-    --rule-soft:#EBE7DA;
-    --shadow:12px 14px 40px -22px rgba(43,42,38,.35);
-    --wrap:820px;
+    --paper:#F5F2E9;--paper-2:#EFEBDD;--card:#FCFBF6;
+    --ink:#26251F;--ink-soft:#5F5C54;
+    --plum:#7B3355;--plum-deep:#5E2340;--sage:#6E7F63;--amber:#C67B3A;
+    --rule:#E2DDCE;--rule-soft:#EBE7DA;
+    --shadow:22px 30px 70px -34px rgba(43,42,38,.5);
+    --wrap:1080px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;color:var(--ink);
     background:
-      radial-gradient(1200px 600px at 78% -8%, rgba(123,51,85,.06), transparent 60%),
-      radial-gradient(900px 500px at 0% 4%, rgba(110,127,99,.07), transparent 55%),
+      radial-gradient(1100px 620px at 82% -6%, rgba(123,51,85,.07), transparent 60%),
+      radial-gradient(900px 560px at -6% 8%, rgba(110,127,99,.08), transparent 55%),
       var(--paper);
     font-family:"Karla",system-ui,sans-serif;font-size:17px;line-height:1.65;
-    -webkit-font-smoothing:antialiased;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
   }
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 30px;}
   a{color:var(--plum);}
   a:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:2px;}
 
-  /* nav */
-  nav{
-    position:sticky;top:0;z-index:10;
-    background:rgba(245,242,233,.86);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--rule);
-  }
-  nav .wrap{display:flex;gap:26px;align-items:center;height:56px;overflow-x:auto;}
-  nav a{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.09em;
-    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);white-space:nowrap;
-    transition:color .18s ease;
-  }
-  nav a:hover{color:var(--plum);}
-  nav a.who{color:var(--ink);font-weight:500;margin-right:auto;letter-spacing:.04em;}
+  /* progress rail */
+  .rail{position:fixed;top:50%;right:22px;transform:translateY(-50%);z-index:30;
+    display:flex;flex-direction:column;gap:14px;}
+  .rail a{width:9px;height:9px;border-radius:50%;background:var(--rule);
+    transition:all .3s;position:relative;}
+  .rail a.on{background:var(--plum);transform:scale(1.35);}
+  .rail a::after{content:attr(data-l);position:absolute;right:20px;top:50%;
+    transform:translateY(-50%);font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap;
+    opacity:0;transition:opacity .25s;pointer-events:none;}
+  .rail a:hover::after{opacity:1;}
+  @media(max-width:820px){.rail{display:none;}}
 
-  /* hero */
-  header{padding:96px 0 44px;position:relative;}
-  .eyebrow{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--sage);margin:0 0 22px;
-    display:inline-flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--sage);display:inline-block;}
-  h1{
-    font-family:"Fraunces",Georgia,serif;font-weight:600;
-    font-size:clamp(44px,9vw,78px);line-height:.98;letter-spacing:-.025em;margin:0 0 26px;
-  }
-  .lede{font-size:clamp(20px,2.8vw,25px);max-width:24ch;margin:0 0 34px;line-height:1.35;color:var(--ink);}
-  .lede em{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;color:var(--plum);}
+  /* top bar */
+  .topbar{position:fixed;top:0;left:0;right:0;z-index:20;height:58px;
+    display:flex;align-items:center;
+    background:linear-gradient(var(--paper),rgba(245,242,233,0));}
+  .topbar .wrap{display:flex;align-items:center;gap:20px;width:100%;}
+  .topbar .name{font-family:"Fraunces",serif;font-weight:600;font-size:18px;color:var(--ink);
+    text-decoration:none;margin-right:auto;letter-spacing:-.01em;}
+  .topbar a.lnk{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);}
+  .topbar a.lnk:hover{color:var(--plum);}
+  @media(max-width:560px){.topbar a.lnk{display:none;}}
 
-  .now{
-    position:relative;background:var(--card);border:1px solid var(--rule);
-    border-radius:14px;padding:20px 22px 20px 24px;margin:0 0 32px;max-width:54ch;
-    box-shadow:var(--shadow);
-  }
-  .now::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;
-    background:var(--sage);border-radius:3px;}
-  .now span{
-    display:inline-flex;align-items:center;gap:7px;
-    font-family:"IBM Plex Mono",monospace;font-size:11px;
-    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;
-  }
-  .now span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);
-    box-shadow:0 0 0 4px rgba(110,127,99,.18);}
-  .now p{margin:0;color:var(--ink-soft);}
+  /* ===== HERO / OVERVIEW ===== */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+    padding:90px 0 40px;position:relative;}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--sage);margin:0 0 20px;
+    display:inline-flex;align-items:center;gap:10px;}
+  .kicker::before{content:"";width:30px;height:1px;background:var(--sage);}
+  .hero h1{font-family:"Fraunces",serif;font-weight:600;
+    font-size:clamp(46px,9vw,92px);line-height:.96;letter-spacing:-.03em;margin:0 0 24px;}
+  .hero h1 em{font-style:italic;color:var(--plum);font-weight:500;}
+  .hero .lede{font-size:clamp(19px,2.4vw,24px);max-width:30ch;color:var(--ink-soft);margin:0 0 44px;line-height:1.4;}
+  .hero .lede b{color:var(--ink);font-weight:600;}
+  .scrollcue{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-soft);display:inline-flex;align-items:center;gap:10px;}
+  .scrollcue .dot{width:22px;height:34px;border:1.5px solid var(--ink-soft);border-radius:12px;
+    position:relative;}
+  .scrollcue .dot::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:6px;
+    background:var(--ink-soft);border-radius:2px;transform:translateX(-50%);
+    animation:cue 1.5s infinite;}
+  @keyframes cue{0%{opacity:0;transform:translate(-50%,0);}40%{opacity:1;}100%{opacity:0;transform:translate(-50%,10px);}}
 
-  .links{display:flex;flex-wrap:wrap;gap:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:13px;}
-  .links a{
-    text-decoration:none;color:var(--ink);
-    border:1px solid var(--rule);border-radius:999px;padding:7px 15px;
-    background:var(--card);transition:all .18s ease;
-  }
-  .links a:hover{border-color:var(--plum);color:var(--plum);transform:translateY(-1px);
-    box-shadow:0 6px 16px -10px rgba(123,51,85,.5);}
+  /* mini journey map */
+  .map{margin:52px 0 0;}
+  .map-track{position:relative;display:flex;justify-content:space-between;gap:6px;
+    padding:24px 0 0;}
+  .map-track::before{content:"";position:absolute;top:34px;left:2%;right:2%;height:2px;
+    background:repeating-linear-gradient(90deg,var(--rule) 0 6px,transparent 6px 14px);}
+  .map-line{position:absolute;top:34px;left:2%;height:2px;background:var(--sage);width:0;
+    transition:width .1s linear;border-radius:2px;}
+  .stop{position:relative;z-index:1;text-align:center;flex:1;min-width:0;}
+  .stop .pin{width:20px;height:20px;border-radius:50%;background:var(--card);
+    border:2px solid var(--rule);margin:0 auto 10px;display:flex;align-items:center;
+    justify-content:center;font-size:11px;transition:all .3s;}
+  .stop.on .pin{border-color:var(--plum);box-shadow:0 0 0 5px rgba(123,51,85,.12);}
+  .stop .yr{font-family:"IBM Plex Mono",monospace;font-size:10px;color:var(--sage);letter-spacing:.05em;display:block;margin-bottom:2px;}
+  .stop .nm{font-size:12px;color:var(--ink-soft);line-height:1.25;}
+  @media(max-width:640px){.stop .nm{display:none;}.map-track::before,.map-line{top:24px;}}
 
-  /* sections */
-  section{padding:64px 0;border-top:1px solid var(--rule);}
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 40px;}
-  h2{
-    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;
-    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0;
-  }
-  .sec-head .idx{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--rule);
-    letter-spacing:.1em;}
-  .sec-head::after{content:"";flex:1;height:1px;background:var(--rule-soft);align-self:center;}
-  h3{
-    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:27px;
-    letter-spacing:-.01em;margin:0 0 4px;line-height:1.18;
-  }
+  /* ===== CHAPTERS ===== */
+  .chapter{min-height:96vh;display:flex;align-items:center;padding:70px 0;position:relative;}
+  .chapter .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .chapter:nth-child(even) .fig{order:2;}
+  @media(max-width:860px){.chapter .wrap{grid-template-columns:1fr;gap:34px;}
+    .chapter:nth-child(even) .fig{order:0;}}
 
-  /* projects */
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-  .project{
-    background:var(--card);border:1px solid var(--rule);border-radius:16px;
-    padding:28px 28px 26px;display:flex;flex-direction:column;
-    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
-  }
-  .project:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#D6CFBB;}
-  .why{
-    font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:19px;
-    color:var(--plum);margin:10px 0 16px;line-height:1.4;
-  }
-  .project p{margin:0 0 14px;}
-  .project p:last-of-type{margin-bottom:18px;}
-  .tools{
-    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
-    letter-spacing:.01em;line-height:1.7;margin:auto 0 14px;padding-top:4px;
-  }
-  .out{
-    font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-decoration:none;
-    color:var(--plum);font-weight:500;display:inline-flex;align-items:center;gap:6px;
-    align-self:flex-start;
-  }
-  .out::after{content:"→";transition:transform .18s ease;}
-  .out:hover::after{transform:translateX(4px);}
+  .fig{position:relative;}
+  .frame{position:relative;aspect-ratio:3/4;border-radius:26px;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 0%, var(--card), var(--paper-2));
+    border:1px solid var(--rule);box-shadow:var(--shadow);
+    display:flex;align-items:center;justify-content:center;}
+  .frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+  .frame .ph{display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--ink-soft);
+    text-align:center;padding:20px;}
+  .frame .ph .emo{font-size:64px;filter:saturate(.9);}
+  .frame .ph .cap{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;opacity:.7;}
+  .frame .ph .sub{font-size:12px;max-width:22ch;opacity:.6;}
+  .fig .badge{position:absolute;top:-14px;left:-14px;background:var(--plum);color:#fff;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.1em;
+    padding:8px 14px;border-radius:12px;box-shadow:0 10px 24px -12px rgba(123,51,85,.7);}
 
-  /* experience */
-  .job{border-left:2px solid var(--rule);padding-left:26px;margin-bottom:40px;position:relative;}
-  .job:last-child{margin-bottom:0;}
-  .job::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;
-    border-radius:50%;background:var(--paper);border:2px solid var(--sage);}
-  .role{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;margin-bottom:2px;}
-  .role h3{font-size:23px;margin:0;}
-  .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);white-space:nowrap;}
-  .where{font-family:"Karla",sans-serif;color:var(--plum);font-weight:500;margin:0 0 16px;font-size:15px;}
-  ul{margin:0;padding-left:20px;max-width:64ch;}
-  li{margin-bottom:10px;}
-  li::marker{color:var(--sage);}
+  .story .step{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sage);margin:0 0 14px;}
+  .story h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(30px,4vw,44px);
+    line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;}
+  .story .yr{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--amber);
+    letter-spacing:.05em;margin:0 0 18px;}
+  .story p{margin:0 0 16px;max-width:52ch;color:var(--ink);}
+  .story p.quiet{color:var(--ink-soft);}
+  .story .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;}
+  .story .tags span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
+    border:1px solid var(--rule);border-radius:999px;padding:6px 13px;background:var(--card);}
 
-  /* background */
-  .block{margin-bottom:26px;max-width:64ch;}
-  .block h4{
-    font-family:"Karla",sans-serif;font-weight:700;font-size:16px;margin:0 0 6px;
-  }
-  .block p{margin:0;color:var(--ink-soft);}
+  /* reveal */
+  .rev{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.3,1),transform .9s cubic-bezier(.2,.7,.3,1);}
+  .rev.in{opacity:1;transform:none;}
+  .rev.d1{transition-delay:.12s;}
+  @media(prefers-reduced-motion:reduce){.rev{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}.scrollcue .dot::after{animation:none;}}
 
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:38px;}
-  .skills div{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px;}
-  .skills div h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+  /* ===== NOW / PROJECTS ===== */
+  .now{padding:90px 0 30px;border-top:1px solid var(--rule);}
+  .now .head{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--sage);margin:0 0 8px;}
+  .now h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(30px,4vw,42px);
+    letter-spacing:-.02em;margin:0 0 40px;max-width:20ch;line-height:1.08;}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media(max-width:760px){.pgrid{grid-template-columns:1fr;}}
+  .project{background:var(--card);border:1px solid var(--rule);border-radius:18px;
+    padding:26px;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .project:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D6CFBB;}
+  .project h3{font-family:"Fraunces",serif;font-weight:600;font-size:24px;margin:0 0 6px;}
+  .project .why{font-family:"Fraunces",serif;font-style:italic;font-size:17px;color:var(--plum);
+    margin:0 0 14px;line-height:1.4;}
+  .project p{margin:0 0 14px;font-size:15.5px;}
+  .project .tools{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-soft);
+    line-height:1.7;margin:auto 0 12px;}
+  .project a.out{font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-decoration:none;
+    color:var(--plum);font-weight:500;align-self:flex-start;display:inline-flex;gap:6px;align-items:center;}
+  .project a.out::after{content:"→";transition:transform .18s;}
+  .project a.out:hover::after{transform:translateX(4px);}
+
+  /* skills */
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:26px;}
+  .skills div{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:20px 22px;}
+  .skills h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
     text-transform:uppercase;color:var(--sage);font-weight:500;margin:0 0 10px;}
-  .skills div p{font-size:15px;color:var(--ink);margin:0;line-height:1.55;}
+  .skills p{margin:0;font-size:15px;color:var(--ink);line-height:1.55;}
+
+  /* writing */
+  .writing{padding:90px 0;border-top:1px solid var(--rule);}
+  .writing .head{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--sage);margin:0 0 8px;}
+  .writing h2{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(30px,4vw,42px);
+    letter-spacing:-.02em;margin:0 0 10px;}
+  .writing .wintro{color:var(--ink-soft);max-width:52ch;margin:0 0 40px;}
+  .wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  @media(max-width:820px){.wgrid{grid-template-columns:1fr;}}
+  .article{display:flex;flex-direction:column;text-decoration:none;color:var(--ink);
+    background:var(--card);border:1px solid var(--rule);border-radius:18px;padding:24px;
+    transition:transform .2s,box-shadow .2s,border-color .2s;}
+  .article:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#D6CFBB;}
+  .article .wtag{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+  .article h3{font-family:"Fraunces",serif;font-weight:600;font-size:22px;line-height:1.2;margin:0 0 12px;}
+  .article p{font-size:15px;color:var(--ink-soft);margin:0 0 18px;}
+  .article .wread{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--plum);
+    font-weight:500;margin-top:auto;}
+  .allposts{display:inline-block;margin-top:28px;font-family:"IBM Plex Mono",monospace;
+    font-size:13px;text-decoration:none;color:var(--ink);border-bottom:1px solid var(--plum);
+    padding-bottom:3px;}
+  .allposts:hover{color:var(--plum);}
 
   /* contact */
-  .contact p.pitch{font-size:clamp(24px,4vw,34px);font-family:"Fraunces",Georgia,serif;
-    font-weight:600;letter-spacing:-.01em;max-width:20ch;margin:0 0 28px;line-height:1.2;color:var(--ink);}
-  footer{padding:34px 0 64px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-    color:var(--ink-soft);letter-spacing:.04em;border-top:1px solid var(--rule);margin-top:8px;
-    display:flex;align-items:center;gap:10px;}
-  footer::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);}
-
-  .reveal{opacity:0;transform:translateY(14px);}
-  .reveal.in{animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
-  @keyframes rise{to{opacity:1;transform:none;}}
-  @media (prefers-reduced-motion:reduce){
-    .reveal,.reveal.in{animation:none;opacity:1;transform:none;}html{scroll-behavior:auto;}
-  }
-  @media (max-width:720px){
-    .grid{grid-template-columns:1fr;}
-    header{padding:64px 0 34px;}
-    .role{grid-template-columns:1fr;}
-    section{padding:50px 0;}
-  }
+  .contact{padding:90px 0;border-top:1px solid var(--rule);text-align:center;}
+  .contact .pitch{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(28px,5vw,46px);
+    letter-spacing:-.02em;line-height:1.12;max-width:18ch;margin:0 auto 34px;}
+  .contact .links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
+  .contact .links a{font-family:"IBM Plex Mono",monospace;font-size:13px;text-decoration:none;
+    color:var(--ink);border:1px solid var(--rule);border-radius:999px;padding:10px 20px;
+    background:var(--card);transition:all .18s;}
+  .contact .links a:hover{border-color:var(--plum);color:var(--plum);transform:translateY(-2px);
+    box-shadow:0 8px 20px -12px rgba(123,51,85,.6);}
+  footer{padding:26px 0 60px;text-align:center;font-family:"IBM Plex Mono",monospace;
+    font-size:11.5px;color:var(--ink-soft);letter-spacing:.05em;}
 </style>
 </head>
 <body>
 
-<nav>
+<div class="topbar">
   <div class="wrap">
-    <a class="who" href="#top">Madhura Anand</a>
-    <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#background">Background</a>
-    <a href="#contact">Contact</a>
+    <a class="name" href="#top">Madhura Anand</a>
+    <a class="lnk" href="#now">Work</a>
+    <a class="lnk" href="#writing">Writing</a>
+    <a class="lnk" href="#contact">Contact</a>
   </div>
-</nav>
+</div>
 
-<div class="wrap" id="top">
+<nav class="rail" id="rail"></nav>
 
-  <header class="reveal">
-    <p class="eyebrow">AI Engineer · Data Systems</p>
-    <h1>Madhura Anand</h1>
-    <p class="lede">I build AI systems for people who <em>do not work in tech</em>, and who have to trust the answer.</p>
+<!-- ===== HERO + OVERVIEW ===== -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="kicker rev">The short version of a long road</p>
+    <h1 class="rev">From a curious kid<br>to <em>AI for a city</em>.</h1>
+    <p class="lede rev d1">I'm Madhura — I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Here's how I got here.</p>
 
-    <div class="now">
-      <span>Now</span>
-      <p>Building a voice agent that answers the phone for a plumbing business, and writing about where AI belongs in public services.</p>
+    <div class="map rev d1">
+      <div class="map-track" id="mapTrack">
+        <div class="map-line" id="mapLine"></div>
+        <a class="stop" href="#c1"><span class="pin">🇮🇳</span><span class="yr">school</span><span class="nm">Curious kid,<br>India</span></a>
+        <a class="stop" href="#c2"><span class="pin">🎓</span><span class="yr">college</span><span class="nm">ML for<br>justice</span></a>
+        <a class="stop" href="#c3"><span class="pin">🛠️</span><span class="yr">2018</span><span class="nm">Data<br>engineer</span></a>
+        <a class="stop" href="#c4"><span class="pin">✈️</span><span class="yr">2021</span><span class="nm">The pivot<br>to the US</span></a>
+        <a class="stop" href="#c5"><span class="pin">📚</span><span class="yr">2022</span><span class="nm">Learning<br>for schools</span></a>
+        <a class="stop" href="#c6"><span class="pin">🏛️</span><span class="yr">2023</span><span class="nm">AI for<br>a city</span></a>
+      </div>
     </div>
 
-    <p class="links">
-      <a href="mailto:madhura.anand@outlook.com">Email</a>
-      <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
-      <a href="https://github.com/madhura1396">GitHub</a>
-      <a href="https://aitalks4good.substack.com">Writing</a>
-    </p>
-  </header>
+    <p class="scrollcue rev d1" style="margin-top:44px;"><span class="dot"></span> Scroll to walk the journey</p>
+  </div>
+</header>
 
-  <section id="work" class="reveal">
-    <div class="sec-head"><span class="idx">01</span><h2>Selected work</h2></div>
+<!-- ===== CHAPTER 1 ===== -->
+<section class="chapter" id="c1" data-l="India">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">01</div>
+      <div class="frame">
+        <img src="images/ch1.png" alt="Madhura as a child in India" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">🇮🇳</span><span class="cap">Your render here</span>
+          <span class="sub">A curious kid, school uniform, first computer</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter one · Where it starts</p>
+      <h2>A curious kid in India</h2>
+      <p>Growing up in India, school was where the questions started — and where a computer first felt less like a machine and more like a place to build things.</p>
+      <p>My first language was <b>Java</b>. Loops and logic, the small thrill of making something run. I didn't know the word "engineer" yet. I just knew I wanted to make the thing work.</p>
+      <div class="tags"><span>First code: Java</span><span>School, India</span></div>
+    </div>
+  </div>
+</section>
 
-    <div class="grid">
-      <div class="project">
+<!-- ===== CHAPTER 2 ===== -->
+<section class="chapter" id="c2" data-l="College">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">02</div>
+      <div class="frame">
+        <img src="images/ch2.png" alt="Madhura in college" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">🎓</span><span class="cap">Your render here</span>
+          <span class="sub">College student, laptop, campus</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter two · The first real thing</p>
+      <h2>Teaching a machine to find justice</h2>
+      <p class="yr">Computer Engineering · University of Mumbai</p>
+      <p>In college I built an ML model to help identify relevant judicial cases — surfacing the most recent, most relevant precedent from a pile of legal text instead of leaving someone to search by hand.</p>
+      <p class="quiet">It was the first time I saw the shape of what I'd keep doing: putting AI in front of a real problem for people who don't have time to be technical about it.</p>
+      <div class="tags"><span>Machine learning</span><span>NLP</span><span>Legal-tech</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 3 ===== -->
+<section class="chapter" id="c3" data-l="Accenture">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">03</div>
+      <div class="frame">
+        <img src="images/ch3.png" alt="Madhura as a data engineer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">🛠️</span><span class="cap">Your render here</span>
+          <span class="sub">Young professional, first job, office</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter three · Learning to ship</p>
+      <h2>Building the plumbing</h2>
+      <p class="yr">Data Engineer · Accenture, Mumbai · 2018–2021</p>
+      <p>My first job was data engineering — 50+ production pipelines moving data across 20+ SAP and non-SAP systems, with reconciliation and validation written in so failures surfaced instead of landing in someone's report.</p>
+      <p class="quiet">This is where I learned that the unglamorous part — the data being <em>right</em> — is the whole job.</p>
+      <div class="tags"><span>SAP BODS</span><span>Pipelines</span><span>Power BI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 4 ===== -->
+<section class="chapter" id="c4" data-l="The pivot">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">04</div>
+      <div class="frame">
+        <img src="images/ch4.png" alt="Madhura moving to the USA" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">✈️</span><span class="cap">Your render here</span>
+          <span class="sub">Suitcase, passport, a big move</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter four · The plan changed</p>
+      <h2>I wanted to be a tech founder. I moved instead.</h2>
+      <p class="yr">Moved to the USA · August 2021</p>
+      <p>The plan was an MBA — I always wanted to become a tech entrepreneur, to build something of my own. Life had other timing. Instead of business school, I moved to the United States for a Master's in Computer Science at Syracuse University.</p>
+      <p class="quiet">The founder instinct didn't go away. It just found a different door.</p>
+      <div class="tags"><span>MS Computer Science</span><span>Syracuse University</span><span>New country</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 5 ===== -->
+<section class="chapter" id="c5" data-l="WCNY">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">05</div>
+      <div class="frame">
+        <img src="images/ch5.png" alt="Madhura at WCNY internship" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">📚</span><span class="cap">Your render here</span>
+          <span class="sub">Building learning tools, classrooms</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter five · Building for others</p>
+      <h2>Custom learning, for local schools</h2>
+      <p class="yr">Intern · WCNY · December 2022</p>
+      <p>At WCNY I helped build custom learning courses for local schools — technology in service of teachers and kids, not the other way around.</p>
+      <p class="quiet">It cemented the thread running through everything: the person on the other end usually isn't technical, and the work is only good if it works for them.</p>
+      <div class="tags"><span>EdTech</span><span>Course building</span><span>Public good</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHAPTER 6 ===== -->
+<section class="chapter" id="c6" data-l="Rochester">
+  <div class="wrap">
+    <div class="fig rev">
+      <div class="badge">06</div>
+      <div class="frame">
+        <img src="images/ch6.png" alt="Madhura at the City of Rochester" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="ph" style="display:none">
+          <span class="emo">🏛️</span><span class="cap">Your render here</span>
+          <span class="sub">Confident professional, city hall</span>
+        </div>
+      </div>
+    </div>
+    <div class="story rev d1">
+      <p class="step">Chapter six · Where it landed</p>
+      <h2>AI for a city</h2>
+      <p class="yr">Data Analyst · City of Rochester, New York · 2023–present</p>
+      <p>Now I build AI and data systems inside government — a four-node agent on AWS Bedrock, retrieval that keeps policy answers grounded in real documents, and the judgment to escalate to a human when the machine shouldn't decide alone.</p>
+      <p class="quiet">Scoped with non-technical staff, built for records retention and auditability from day one. The kid who wanted to make the thing work now makes it work for a whole city.</p>
+      <div class="tags"><span>AWS Bedrock</span><span>RAG</span><span>Public sector</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOW / PROJECTS ===== -->
+<section class="now" id="now">
+  <div class="wrap">
+    <p class="head rev">And on the side — the founder instinct, shipping</p>
+    <h2 class="rev">Things I build when nobody assigns them</h2>
+    <div class="pgrid">
+      <div class="project rev">
         <h3>FinRAG</h3>
         <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
-        <p>A local system that reads credit card statements and answers questions about spending in plain English. Every question is routed before retrieval: arithmetic goes to SQL because it has to be exact, pattern questions go to vector search. The model formats the answer, it never calculates it.</p>
-        <p>Statements are sensitive enough that everything runs on the machine, with no external API. Measured across seven question types, embedding the merchant and category reached 80% accuracy, while adding the raw description dropped it to 73% because store numbers and transaction codes came along with the useful terms.</p>
+        <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; pattern questions go to vector search. The model formats the answer, it never calculates it — and everything runs locally, no external API.</p>
         <p class="tools">FastAPI · PostgreSQL · pgvector · Ollama · sentence-transformers</p>
         <a class="out" href="https://github.com/madhura1396/finrag">Code and decision log</a>
       </div>
-
-      <div class="project">
+      <div class="project rev d1">
         <h3>PR Review Agent</h3>
-        <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
-        <p>A multi-agent code review system. An orchestrator routes chunks of a pull request to specialist agents for security, performance and style, then a critic agent reconciles what they found, strips duplicates and assigns severity before anything is posted. A human still approves the merge.</p>
-        <p>Traced with LangSmith and evaluated with DeepEval, so a change to a prompt has a measured effect rather than an assumed one.</p>
-        <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval · GitHub Actions</p>
+        <p class="why">Four opinions on one diff are worse than one, unless something reconciles them.</p>
+        <p>A multi-agent code reviewer: an orchestrator routes chunks to specialists for security, performance and style, then a critic reconciles, de-duplicates and assigns severity before anything posts. Traced with LangSmith, evaluated with DeepEval.</p>
+        <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval</p>
         <a class="out" href="https://github.com/madhura1396/pr-review-agent">Code</a>
       </div>
-
-      <div class="project">
+      <div class="project rev">
         <h3>Voice receptionist</h3>
         <p class="why">A flooded basement should never reach an AI.</p>
-        <p>A small business misses calls while its people are under a sink, and every missed call goes to whoever picks up next. The design started from the calls the owner actually gets: burst pipe, no water, water through the ceiling. Emergencies route straight to a person. The assistant books the routine work, which is most of the volume and the part where a mistake costs an appointment slot rather than someone's house.</p>
-        <p>A webhook turns unstructured call audio into structured booking records, so nothing has to be typed up afterwards.</p>
+        <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work. A webhook turns call audio into structured booking records.</p>
         <p class="tools">Retell · Cloudflare Workers · Airtable</p>
       </div>
-
-      <div class="project">
-        <h3>Portfolio notification agent</h3>
-        <p class="why">Retrieval, summarising and delivery should be able to fail separately.</p>
-        <p>Claude connected to a custom MCP server that exposes brokerage account data as callable tools, delivering plain English portfolio digests over Telegram. Scheduled jobs are kept independent, so a formatting failure in delivery does not take the summary down with it.</p>
+      <div class="project rev d1">
+        <h3>Portfolio agent</h3>
+        <p class="why">Retrieval, summarising and delivery should fail separately.</p>
+        <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English portfolio digests over Telegram. Scheduled jobs stay independent, so a delivery hiccup never takes the summary down with it.</p>
         <p class="tools">Claude · MCP · APScheduler · Telegram Bot API</p>
       </div>
     </div>
-  </section>
-
-  <section id="experience" class="reveal">
-    <div class="sec-head"><span class="idx">02</span><h2>Experience</h2></div>
-
-    <div class="job">
-      <div class="role">
-        <h3>Data Analyst</h3>
-        <p class="when">Aug 2023 – Jun 2026</p>
-      </div>
-      <p class="where">City of Rochester, New York</p>
-      <ul>
-        <li>Deployed a four node agent on AWS Bedrock with a routing layer covering clarification, escalation and retrieval, plus a pre-flight classifier deciding what reached the model at all.</li>
-        <li>Built the retrieval layer behind it so policy answers stayed grounded in source documents, with escalation to a person as the answer for questions the agent should not handle alone.</li>
-        <li>Scoped with non-technical department staff what the agent should and should not do before building it, rather than after deployment.</li>
-        <li>Worked inside public sector constraints on records retention, access control and auditability, keeping logging and review paths in the design from the start.</li>
-        <li>Built SQL models consolidating multiple source systems into documented datasets, with validation and reconciliation checks that surfaced failures instead of letting them land in stakeholder tables.</li>
-        <li>Delivered Power BI dashboards on star and snowflake models so leadership reported against one set of definitions rather than divergent extracts.</li>
-        <li>Automated recurring reporting through Power Automate and Power Apps, reaching people inside the tools they already used.</li>
-      </ul>
-    </div>
-
-    <div class="job">
-      <div class="role">
-        <h3>Data Engineer</h3>
-        <p class="when">Oct 2018 – Jul 2021</p>
-      </div>
-      <p class="where">Accenture, Mumbai</p>
-      <ul>
-        <li>Built and maintained 50+ production pipelines in SAP BODS integrating more than 20 SAP and non-SAP systems, cutting transfer time by 30% through job level tuning and parallel processing.</li>
-        <li>Wrote reconciliation and validation into the pipelines themselves, holding 98% consistency across environments.</li>
-        <li>Deployed large scale integration workflows on SAP PI/PO, improving downstream accuracy by 25% and cutting reporting latency.</li>
-        <li>Built Power BI dashboards for C-suite stakeholders, gathering requirements directly from business owners.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="background" class="reveal">
-    <div class="sec-head"><span class="idx">03</span><h2>Background</h2></div>
-
-    <div class="block">
-      <h4>Education</h4>
-      <p>MS Computer Science, Syracuse University (2023). BE Computer Engineering, University of Mumbai.</p>
-    </div>
-
-    <div class="block">
-      <h4>Certifications</h4>
-      <p>Microsoft Certified Power BI Data Analyst Associate. Applied Machine Learning, Columbia Engineering. Certified Scrum Product Owner.</p>
-    </div>
-
-    <div class="block">
-      <h4>Beyond the job</h4>
-      <p>Co-founded Unsung SheCodes, a community platform with 20+ interviews with AI and ML practitioners. Won the M&amp;T Tech Grant at the NextCorps AI Startup Jam, building an MVP in 72 hours after 25+ user interviews. I write about AI governance and social good at <a href="https://aitalks4good.substack.com">aitalks4good.substack.com</a>.</p>
-    </div>
 
     <div class="skills">
-      <div>
-        <h4>Agents and LLMs</h4>
-        <p>LangGraph, LangChain, MCP, AWS Bedrock, RAG and vector search, evaluation and tracing</p>
-      </div>
-      <div>
-        <h4>Data</h4>
-        <p>SQL, PostgreSQL, pgvector, dimensional modelling, SAP BODS, pandas, scikit-learn</p>
-      </div>
-      <div>
-        <h4>Building and shipping</h4>
-        <p>Python, FastAPI, Docker, AWS, GitHub Actions, Power BI, Power Automate</p>
-      </div>
+      <div class="rev"><h4>Agents &amp; LLMs</h4><p>LangGraph, LangChain, MCP, AWS Bedrock, RAG &amp; vector search, evaluation &amp; tracing</p></div>
+      <div class="rev d1"><h4>Data</h4><p>SQL, PostgreSQL, pgvector, dimensional modelling, SAP BODS, pandas, scikit-learn</p></div>
+      <div class="rev"><h4>Building &amp; shipping</h4><p>Python, FastAPI, Docker, AWS, GitHub Actions, Power BI, Power Automate</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="contact reveal">
-    <div class="sec-head"><span class="idx">04</span><h2>Contact</h2></div>
-    <p class="pitch">If you have a problem that is mostly people and partly software, I would like to hear it.</p>
-    <p class="links">
+<!-- ===== WRITING ===== -->
+<section class="writing" id="writing">
+  <div class="wrap">
+    <p class="head rev">Writing · aitalks4good</p>
+    <h2 class="rev">I write about where AI belongs</h2>
+    <p class="wintro rev d1">AI governance, drift, and social good — for practitioners who ship, not just theorise.</p>
+    <div class="wgrid">
+      <a class="article rev" href="https://aitalks4good.substack.com/p/i-code-and-write-ai-policies-for">
+        <span class="wtag">Featured</span>
+        <h3>Why developers should actually care about governance</h3>
+        <p>I code and write AI policies for my job — here's the practitioner's case for why governance frameworks matter to the people building.</p>
+        <span class="wread">Read on Substack →</span>
+      </a>
+      <a class="article rev d1" href="https://aitalks4good.substack.com/p/what-model-drift-actually-means-and">
+        <span class="wtag">Featured</span>
+        <h3>What "model drift" actually means</h3>
+        <p>Why failing systems often give no warning signal — and how to see it coming before your model breaks.</p>
+        <span class="wread">Read on Substack →</span>
+      </a>
+      <a class="article rev" href="https://aitalks4good.substack.com/p/finras-warning-shot-the-end-of-move">
+        <span class="wtag">Featured</span>
+        <h3>FINRA's warning shot</h3>
+        <p>The end of "move fast and break things" in AI — how regulatory enforcement is pushing the industry toward accountability.</p>
+        <span class="wread">Read on Substack →</span>
+      </a>
+    </div>
+    <a class="allposts rev d1" href="https://aitalks4good.substack.com/archive">All articles on Substack →</a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="pitch rev">If you have a problem that's mostly people and partly software, I'd like to hear it.</p>
+    <div class="links rev d1">
       <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
       <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
       <a href="https://github.com/madhura1396">GitHub</a>
-    </p>
-  </section>
+      <a href="https://aitalks4good.substack.com">Writing</a>
+    </div>
+  </div>
+</section>
 
-  <footer>Canadian Permanent Resident · Cambridge, Ontario</footer>
-
-</div>
+<footer>Canadian Permanent Resident · Cambridge, Ontario · Certified Power BI Data Analyst · CSPO</footer>
 
 <script>
-  (function(){
-    var els=document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
-    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-    els.forEach(function(e){io.observe(e);});
-  })();
+  // reveal on scroll
+  var revs=document.querySelectorAll('.rev');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.15,rootMargin:'0px 0px -8% 0px'});
+    revs.forEach(function(e){io.observe(e);});
+  } else { revs.forEach(function(e){e.classList.add('in');}); }
+
+  // build progress rail from chapters
+  var chapters=[].slice.call(document.querySelectorAll('.chapter'));
+  var rail=document.getElementById('rail');
+  chapters.forEach(function(c){
+    var a=document.createElement('a');
+    a.href='#'+c.id; a.setAttribute('data-l',c.getAttribute('data-l'));
+    rail.appendChild(a);
+  });
+  var dots=[].slice.call(rail.children);
+
+  // map line + rail active + parallax
+  var mapLine=document.getElementById('mapLine');
+  var track=document.getElementById('mapTrack');
+  var stops=[].slice.call(document.querySelectorAll('.stop'));
+  function onScroll(){
+    // active chapter
+    var idx=-1, mid=window.innerHeight*0.5;
+    chapters.forEach(function(c,i){
+      var r=c.getBoundingClientRect();
+      if(r.top<=mid && r.bottom>=mid) idx=i;
+    });
+    dots.forEach(function(d,i){d.classList.toggle('on',i===idx);});
+    stops.forEach(function(s,i){s.classList.toggle('on',i<=idx);});
+    // journey line fills with overall scroll progress
+    var h=document.body.scrollHeight-window.innerHeight;
+    var p=Math.min(1,Math.max(0,window.scrollY/h));
+    if(mapLine){mapLine.style.width=(96*p)+'%';}
+    // gentle parallax on figures
+    document.querySelectorAll('.chapter').forEach(function(c){
+      var f=c.querySelector('.frame'); if(!f)return;
+      var r=c.getBoundingClientRect();
+      var off=(r.top+r.height/2-window.innerHeight/2)/window.innerHeight;
+      f.style.transform='translateY('+(off*-18)+'px)';
+    });
+  }
+  var ticking=false;
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false;});ticking=true;}
+  },{passive:true});
+  onScroll();
 </script>
 </body>
 </html>
