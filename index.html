@@ -164,6 +164,13 @@
   .item h3 a:hover{border-bottom:1px solid var(--ink);}
   .item p{margin:0;max-width:60ch;color:var(--ink);}
 
+  /* current dream */
+  .dream{padding:56px 0 30px;border-top:1px solid var(--line);}
+  .dreamline{font-family:var(--display);font-weight:700;font-size:clamp(30px,4.6vw,50px);
+    line-height:1.14;letter-spacing:-.025em;max-width:22ch;margin:0 0 26px;}
+  .dreamline em{font-style:normal;color:var(--quote);}
+  .dreamsub{font-size:20px;color:var(--muted);max-width:54ch;margin:0;line-height:1.55;}
+
   /* contact */
   .contact{padding:56px 0 40px;border-top:1px solid var(--line);}
   .contact p.pitch{font-weight:500;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em;
@@ -189,6 +196,7 @@
       <a href="#work">Work</a>
       <a href="#writing">Writing</a>
       <a href="#life">Life</a>
+      <a href="#dream">Dream</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -357,6 +365,12 @@
       <h3>A three-country path</h3>
       <p>Grew up in India, studied and built in the US, now calling Canada home. Every move reset the map; the curiosity stayed the same.</p>
     </div>
+  </section>
+
+  <section class="dream wrap" id="dream">
+    <p class="label rev">Current dream</p>
+    <p class="dreamline rev">To build <em>something of my own</em> — a company that puts trustworthy AI in the hands of the people who need it most and understand it least.</p>
+    <p class="dreamsub rev">The founder instinct that once pointed me toward an MBA never really left. It just went quiet, learned to ship, and has been waiting for the right problem. I think it's getting close.</p>
   </section>
 
   <section class="contact wrap" id="contact">
