@@ -56,13 +56,17 @@
   .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
     margin:0 0 46px;font-weight:500;}
 
-  /* journey */
+  /* journey timeline */
   .journey{padding:96px 0 40px;border-top:1px solid var(--line);}
   .chapter{display:grid;grid-template-columns:88px 1fr;gap:34px;align-items:start;
-    padding:0 0 84px;}
+    padding:0 0 84px;position:relative;}
   .chapter:last-child{padding-bottom:0;}
-  .avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;background:var(--line);
-    position:sticky;top:40px;}
+  /* the spine: a line down the centre of the avatar column */
+  .chapter::before{content:"";position:absolute;left:43px;top:8px;bottom:0;width:2px;
+    background:var(--line);}
+  .chapter:last-child::before{bottom:auto;height:88px;}
+  .avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;background:var(--bg);
+    position:relative;z-index:1;box-shadow:0 0 0 6px var(--bg);}
   .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
   .avatar .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
     font-size:34px;background:#F0EDE5;}
@@ -74,19 +78,35 @@
   .chapter p:last-child{margin-bottom:0;}
   @media(max-width:600px){
     .chapter{grid-template-columns:1fr;gap:18px;}
-    .avatar{position:static;width:72px;height:72px;}
+    .chapter::before,.chapter:last-child::before{display:none;}
+    .avatar{width:72px;height:72px;box-shadow:none;}
   }
 
-  /* simple lists */
+  /* block + work timeline */
   .block{padding:96px 0 40px;border-top:1px solid var(--line);}
+  .worktl{position:relative;}
+  .tnode{position:relative;padding:0 0 40px 122px;}
+  .tnode::before{content:"";position:absolute;left:43px;top:6px;bottom:0;width:2px;background:var(--line);}
+  .tnode:last-child::before{bottom:auto;height:14px;}
+  .tnode::after{content:"";position:absolute;left:37px;top:5px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--muted);box-shadow:0 0 0 5px var(--bg);}
+  .tnode h3{font-weight:600;font-size:19px;letter-spacing:-.01em;margin:0 0 4px;}
+  .tnode h3 a{border:none;}
+  .tnode h3 a:hover{border-bottom:1px solid var(--ink);}
+  .tnode .sub{color:var(--muted);font-size:14px;letter-spacing:.02em;margin:0 0 8px;}
+  .tnode p{margin:0;max-width:58ch;}
+  @media(max-width:600px){
+    .tnode{padding-left:26px;}
+    .tnode::after{left:0;}.tnode::before{left:6px;}
+  }
+
+  /* writing list */
   .item{padding:26px 0;border-top:1px solid var(--line);}
   .item:first-of-type{border-top:none;}
   .item h3{font-weight:600;font-size:19px;letter-spacing:-.01em;margin:0 0 4px;}
   .item h3 a{border:none;}
   .item h3 a:hover{border-bottom:1px solid var(--ink);}
-  .item .sub{color:var(--muted);font-size:15px;margin:0 0 8px;}
   .item p{margin:0;max-width:60ch;color:var(--ink);}
-  .item .role{font-size:13px;color:var(--muted);float:right;margin-left:20px;}
 
   /* contact */
   .contact{padding:96px 0 40px;border-top:1px solid var(--line);}
@@ -198,26 +218,28 @@
   </section>
 
   <section class="block wrap" id="work">
-    <p class="label rev">Selected work</p>
-    <div class="item rev">
-      <h3><a href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">FinRAG</a></h3>
-      <p class="sub">FastAPI · PostgreSQL · pgvector · Ollama</p>
-      <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; patterns go to vector search. Runs fully local — no external API.</p>
-    </div>
-    <div class="item rev">
-      <h3><a href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">PR Review Agent</a></h3>
-      <p class="sub">LangGraph · LangChain · LangSmith · DeepEval</p>
-      <p>A multi-agent code reviewer: specialists for security, performance and style; a critic reconciles, de-duplicates and assigns severity before anything posts. Traced and evaluated so prompt changes have measured effects.</p>
-    </div>
-    <div class="item rev">
-      <h3>Voice receptionist</h3>
-      <p class="sub">Retell · Cloudflare Workers · Airtable</p>
-      <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work.</p>
-    </div>
-    <div class="item rev">
-      <h3>Portfolio agent</h3>
-      <p class="sub">Claude · MCP · APScheduler · Telegram</p>
-      <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English digests over Telegram. Jobs stay independent, so a delivery hiccup never takes the summary down.</p>
+    <p class="label rev">Things I build on the side</p>
+    <div class="worktl">
+      <div class="tnode rev">
+        <h3><a href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">FinRAG</a></h3>
+        <p class="sub">FastAPI · PostgreSQL · pgvector · Ollama</p>
+        <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; patterns go to vector search. Runs fully local — no external API.</p>
+      </div>
+      <div class="tnode rev">
+        <h3><a href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">PR Review Agent</a></h3>
+        <p class="sub">LangGraph · LangChain · LangSmith · DeepEval</p>
+        <p>A multi-agent code reviewer: specialists for security, performance and style; a critic reconciles, de-duplicates and assigns severity before anything posts. Traced and evaluated so prompt changes have measured effects.</p>
+      </div>
+      <div class="tnode rev">
+        <h3>Voice receptionist</h3>
+        <p class="sub">Retell · Cloudflare Workers · Airtable</p>
+        <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work.</p>
+      </div>
+      <div class="tnode rev">
+        <h3>Portfolio agent</h3>
+        <p class="sub">Claude · MCP · APScheduler · Telegram</p>
+        <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English digests over Telegram. Jobs stay independent, so a delivery hiccup never takes the summary down.</p>
+      </div>
     </div>
   </section>
 
