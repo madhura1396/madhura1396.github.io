@@ -24,7 +24,10 @@
     --wrap:1000px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-snap-type:y proximity;scroll-padding-top:70px;}
+  /* page-snap: each section clicks to the top like turning a page */
+  .hero,.block,.chapter,.dream,.contact{scroll-snap-align:start;scroll-margin-top:70px;}
+  @media(prefers-reduced-motion:reduce){html{scroll-snap-type:none;}}
   body{
     margin:0;color:var(--ink);
     background:
