@@ -102,6 +102,10 @@
   /* section label */
   .label{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
     margin:0 0 30px;font-weight:500;}
+  .about-body{max-width:62ch;}
+  .about-body p{font-size:22px;line-height:1.55;margin:0 0 22px;}
+  .about-body p:last-child{margin-bottom:0;}
+  .about-body b{font-weight:600;}
 
   /* journey timeline */
   .journey{padding:44px 0 30px;border-top:1px solid var(--line);}
@@ -176,8 +180,9 @@
   <div class="wrap">
     <a class="name" href="#top">Madhura Anand</a>
     <span class="spacer"></span>
-    <a class="otw" href="#now"><span class="dot"></span>Open to work</a>
+    <a class="otw" href="#next"><span class="dot"></span>Open to work</a>
     <nav>
+      <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#writing">Writing</a>
       <a href="#life">Life</a>
@@ -203,18 +208,16 @@
     <div class="hero-av"><img src="images/sketch.jpg" alt="Madhura Anand — ink portrait"></div>
   </section>
 
-  <section class="now-sec wrap" id="now">
-    <p class="label rev">Now</p>
-    <ul class="nowlist rev">
-      <li><span>Building</span> Voice agents &amp; RAG systems that people can actually trust</li>
-      <li><span>Writing</span> On AI governance &amp; social good at <a href="https://aitalks4good.substack.com" target="_blank" rel="noopener">aitalks4good</a></li>
-      <li><span>Based in</span> Cambridge, Ontario 🍁</li>
-      <li><span>Status</span> Open to new roles</li>
-    </ul>
+  <section class="block wrap" id="about">
+    <p class="label rev">About me</p>
+    <div class="about-body rev">
+      <p>I'm an AI engineer who cares less about models and more about the people who have to trust them. Over six years I've moved from data pipelines to analytics to building AI agents — always for the person on the other end who doesn't work in tech and can't afford a wrong answer.</p>
+      <p>I've done that inside a city government, a public-media newsroom, and a global consultancy, across three countries. I write about AI governance and social good at <a href="https://aitalks4good.substack.com" target="_blank" rel="noopener">aitalks4good</a>, help spotlight women in tech, and I'm happiest turning a messy human problem into software that quietly works.</p>
+    </div>
   </section>
 
   <section class="journey wrap" id="story">
-    <p class="label rev">The journey</p>
+    <p class="label rev">Journey so far</p>
 
     <div class="chapter rev">
       <div class="avatar"><img src="images/ch1.jpg" alt="Madhura as a child" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="ph" style="display:none">🇮🇳</div></div>
