@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FBF8F3;
@@ -20,7 +20,7 @@
     --accent:#4C7A5A;      /* the "open to work" dot */
     --quote:#9C4A6B;       /* serif-italic subtitle accent */
     --hot:#B4472B;         /* terracotta hero accent */
-    --display:"Space Grotesk","Inter",sans-serif;
+    --display:"Schibsted Grotesk",system-ui,sans-serif;
     --wrap:1000px;
   }
   *{box-sizing:border-box;}
@@ -33,8 +33,8 @@
       radial-gradient(820px 700px at 55% 104%, rgba(126,182,138,.30), transparent 60%),
       linear-gradient(180deg,#FCF7EF,#F1F3EF);
     background-attachment:fixed;
-    font-family:"Inter",system-ui,sans-serif;font-size:19px;line-height:1.66;
-    -webkit-font-smoothing:antialiased;letter-spacing:-.006em;
+    font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:19px;line-height:1.66;
+    -webkit-font-smoothing:antialiased;letter-spacing:-.008em;
   }
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
   h1,h2,h3,.top .name,.contact p.pitch{font-family:var(--display);letter-spacing:-.02em;}
@@ -145,7 +145,10 @@
   .tnode h3 a{border:none;}
   .tnode h3 a:hover{border-bottom:1px solid var(--ink);}
   .tnode .sub{color:var(--muted);font-size:15px;letter-spacing:.02em;margin:0 0 8px;}
-  .tnode p{margin:0;max-width:58ch;}
+  .tnode p{margin:0 0 14px;max-width:58ch;}
+  .tnode .gh{display:inline-block;font-size:14px;font-weight:600;color:var(--ink);
+    border:none;letter-spacing:-.01em;}
+  .tnode .gh:hover{color:var(--quote);}
   @media(max-width:600px){
     .tnode{padding-left:26px;}
     .tnode::after{left:0;}.tnode::before{left:6px;}
@@ -293,12 +296,14 @@
         <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
         <p class="sub">FastAPI · PostgreSQL · pgvector · Ollama</p>
         <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; patterns go to vector search. Runs fully local — no external API.</p>
+        <a class="gh" href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">View on GitHub ↗</a>
       </div>
       <div class="tnode rev">
         <h3><a href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">PR Review Agent</a></h3>
         <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
         <p class="sub">LangGraph · LangChain · LangSmith · DeepEval</p>
         <p>A multi-agent code reviewer: specialists for security, performance and style; a critic reconciles, de-duplicates and assigns severity before anything posts. Traced and evaluated so prompt changes have measured effects.</p>
+        <a class="gh" href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">View on GitHub ↗</a>
       </div>
       <div class="tnode rev">
         <h3>Voice receptionist</h3>
