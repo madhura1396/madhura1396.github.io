@@ -10,129 +10,178 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F6F4EC;
+    --paper:#F5F2E9;
     --paper-2:#FBFAF5;
-    --ink:#2B2A26;
+    --card:#FCFBF6;
+    --ink:#26251F;
     --ink-soft:#5F5C54;
     --plum:#7B3355;
+    --plum-deep:#5E2340;
     --sage:#6E7F63;
-    --rule:#DEDACB;
-    --wrap:760px;
+    --rule:#E2DDCE;
+    --rule-soft:#EBE7DA;
+    --shadow:12px 14px 40px -22px rgba(43,42,38,.35);
+    --wrap:820px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;background:var(--paper);color:var(--ink);
+    margin:0;color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 78% -8%, rgba(123,51,85,.06), transparent 60%),
+      radial-gradient(900px 500px at 0% 4%, rgba(110,127,99,.07), transparent 55%),
+      var(--paper);
     font-family:"Karla",system-ui,sans-serif;font-size:17px;line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px;}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px;}
   a{color:var(--plum);}
   a:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:2px;}
 
   /* nav */
   nav{
     position:sticky;top:0;z-index:10;
-    background:rgba(246,244,236,.93);backdrop-filter:blur(6px);
+    background:rgba(245,242,233,.86);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--rule);
   }
-  nav .wrap{display:flex;gap:22px;align-items:center;height:52px;overflow-x:auto;}
+  nav .wrap{display:flex;gap:26px;align-items:center;height:56px;overflow-x:auto;}
   nav a{
     font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.09em;
     text-transform:uppercase;text-decoration:none;color:var(--ink-soft);white-space:nowrap;
+    transition:color .18s ease;
   }
   nav a:hover{color:var(--plum);}
-  nav a.who{color:var(--ink);font-weight:500;margin-right:auto;}
+  nav a.who{color:var(--ink);font-weight:500;margin-right:auto;letter-spacing:.04em;}
 
   /* hero */
-  header{padding:76px 0 34px;}
+  header{padding:96px 0 44px;position:relative;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--sage);margin:0 0 22px;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--sage);display:inline-block;}
   h1{
     font-family:"Fraunces",Georgia,serif;font-weight:600;
-    font-size:clamp(40px,8vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 22px;
+    font-size:clamp(44px,9vw,78px);line-height:.98;letter-spacing:-.025em;margin:0 0 26px;
   }
-  .lede{font-size:clamp(19px,2.6vw,22px);max-width:38ch;margin:0 0 30px;}
-  .lede em{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--plum);}
+  .lede{font-size:clamp(20px,2.8vw,25px);max-width:24ch;margin:0 0 34px;line-height:1.35;color:var(--ink);}
+  .lede em{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:500;color:var(--plum);}
 
   .now{
-    border-left:3px solid var(--sage);padding:4px 0 4px 18px;margin:0 0 34px;max-width:52ch;
+    position:relative;background:var(--card);border:1px solid var(--rule);
+    border-radius:14px;padding:20px 22px 20px 24px;margin:0 0 32px;max-width:54ch;
+    box-shadow:var(--shadow);
   }
+  .now::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:3px;
+    background:var(--sage);border-radius:3px;}
   .now span{
-    display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-    letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:4px;
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;
   }
+  .now span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);
+    box-shadow:0 0 0 4px rgba(110,127,99,.18);}
   .now p{margin:0;color:var(--ink-soft);}
 
-  .links{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:"IBM Plex Mono",monospace;font-size:13px;}
-  .links a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;}
-  .links a:hover{border-bottom-color:var(--plum);}
+  .links{display:flex;flex-wrap:wrap;gap:10px 12px;font-family:"IBM Plex Mono",monospace;font-size:13px;}
+  .links a{
+    text-decoration:none;color:var(--ink);
+    border:1px solid var(--rule);border-radius:999px;padding:7px 15px;
+    background:var(--card);transition:all .18s ease;
+  }
+  .links a:hover{border-color:var(--plum);color:var(--plum);transform:translateY(-1px);
+    box-shadow:0 6px 16px -10px rgba(123,51,85,.5);}
 
   /* sections */
-  section{padding:56px 0;border-top:1px solid var(--rule);}
+  section{padding:64px 0;border-top:1px solid var(--rule);}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 40px;}
   h2{
     font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;
-    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0 0 34px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0;
   }
+  .sec-head .idx{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--rule);
+    letter-spacing:.1em;}
+  .sec-head::after{content:"";flex:1;height:1px;background:var(--rule-soft);align-self:center;}
   h3{
-    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:26px;
-    letter-spacing:-.01em;margin:0 0 4px;line-height:1.2;
+    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:27px;
+    letter-spacing:-.01em;margin:0 0 4px;line-height:1.18;
   }
 
   /* projects */
-  .project{margin-bottom:52px;}
-  .project:last-child{margin-bottom:0;}
-  .why{
-    font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:20px;
-    color:var(--plum);margin:12px 0 16px;max-width:46ch;line-height:1.45;
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .project{
+    background:var(--card);border:1px solid var(--rule);border-radius:16px;
+    padding:28px 28px 26px;display:flex;flex-direction:column;
+    transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
   }
-  .project p{margin:0 0 14px;max-width:60ch;}
+  .project:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#D6CFBB;}
+  .why{
+    font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:19px;
+    color:var(--plum);margin:10px 0 16px;line-height:1.4;
+  }
+  .project p{margin:0 0 14px;}
+  .project p:last-of-type{margin-bottom:18px;}
   .tools{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);
-    letter-spacing:.02em;margin:0 0 12px;
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink-soft);
+    letter-spacing:.01em;line-height:1.7;margin:auto 0 14px;padding-top:4px;
   }
   .out{
-    font-family:"IBM Plex Mono",monospace;font-size:13px;text-decoration:none;
-    border-bottom:1px solid var(--plum);padding-bottom:2px;
+    font-family:"IBM Plex Mono",monospace;font-size:12.5px;text-decoration:none;
+    color:var(--plum);font-weight:500;display:inline-flex;align-items:center;gap:6px;
+    align-self:flex-start;
   }
+  .out::after{content:"→";transition:transform .18s ease;}
+  .out:hover::after{transform:translateX(4px);}
 
   /* experience */
-  .role{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;margin-bottom:6px;}
-  .role h3{font-size:23px;}
-  .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);white-space:nowrap;}
-  .where{font-family:"Karla",sans-serif;color:var(--ink-soft);margin:0 0 14px;}
-  .job{margin-bottom:44px;}
+  .job{border-left:2px solid var(--rule);padding-left:26px;margin-bottom:40px;position:relative;}
   .job:last-child{margin-bottom:0;}
-  ul{margin:0 0 8px;padding-left:20px;max-width:62ch;}
-  li{margin-bottom:9px;}
+  .job::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;
+    border-radius:50%;background:var(--paper);border:2px solid var(--sage);}
+  .role{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;margin-bottom:2px;}
+  .role h3{font-size:23px;margin:0;}
+  .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);white-space:nowrap;}
+  .where{font-family:"Karla",sans-serif;color:var(--plum);font-weight:500;margin:0 0 16px;font-size:15px;}
+  ul{margin:0;padding-left:20px;max-width:64ch;}
+  li{margin-bottom:10px;}
   li::marker{color:var(--sage);}
 
   /* background */
-  .block{margin-bottom:30px;}
+  .block{margin-bottom:26px;max-width:64ch;}
   .block h4{
-    font-family:"Karla",sans-serif;font-weight:600;font-size:16px;margin:0 0 6px;
+    font-family:"Karla",sans-serif;font-weight:700;font-size:16px;margin:0 0 6px;
   }
-  .block p{margin:0;color:var(--ink-soft);max-width:60ch;}
+  .block p{margin:0;color:var(--ink-soft);}
 
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 34px;}
-  .skills div h4{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--sage);font-weight:500;margin:0 0 6px;}
-  .skills div p{font-size:15.5px;color:var(--ink-soft);margin:0;}
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:38px;}
+  .skills div{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:20px 22px;}
+  .skills div h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--sage);font-weight:500;margin:0 0 10px;}
+  .skills div p{font-size:15px;color:var(--ink);margin:0;line-height:1.55;}
 
   /* contact */
-  .contact p{font-size:clamp(20px,3vw,26px);font-family:"Fraunces",Georgia,serif;
-    max-width:28ch;margin:0 0 24px;line-height:1.3;}
-  footer{padding:34px 0 60px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-    color:var(--ink-soft);letter-spacing:.04em;}
+  .contact p.pitch{font-size:clamp(24px,4vw,34px);font-family:"Fraunces",Georgia,serif;
+    font-weight:600;letter-spacing:-.01em;max-width:20ch;margin:0 0 28px;line-height:1.2;color:var(--ink);}
+  footer{padding:34px 0 64px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:.04em;border-top:1px solid var(--rule);margin-top:8px;
+    display:flex;align-items:center;gap:10px;}
+  footer::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);}
 
-  .reveal{opacity:0;transform:translateY(10px);animation:rise .65s cubic-bezier(.2,.7,.3,1) forwards;}
+  .reveal{opacity:0;transform:translateY(14px);}
+  .reveal.in{animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;}
   @keyframes rise{to{opacity:1;transform:none;}}
-  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none;}html{scroll-behavior:auto;}}
-  @media (max-width:600px){
-    header{padding:52px 0 28px;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,.reveal.in{animation:none;opacity:1;transform:none;}html{scroll-behavior:auto;}
+  }
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr;}
+    header{padding:64px 0 34px;}
     .role{grid-template-columns:1fr;}
-    section{padding:44px 0;}
+    section{padding:50px 0;}
   }
 </style>
 </head>
@@ -151,6 +200,7 @@
 <div class="wrap" id="top">
 
   <header class="reveal">
+    <p class="eyebrow">AI Engineer · Data Systems</p>
     <h1>Madhura Anand</h1>
     <p class="lede">I build AI systems for people who <em>do not work in tech</em>, and who have to trust the answer.</p>
 
@@ -160,52 +210,54 @@
     </div>
 
     <p class="links">
-      <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
+      <a href="mailto:madhura.anand@outlook.com">Email</a>
       <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
       <a href="https://github.com/madhura1396">GitHub</a>
       <a href="https://aitalks4good.substack.com">Writing</a>
     </p>
   </header>
 
-  <section id="work">
-    <h2>Selected work</h2>
+  <section id="work" class="reveal">
+    <div class="sec-head"><span class="idx">01</span><h2>Selected work</h2></div>
 
-    <div class="project">
-      <h3>FinRAG</h3>
-      <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
-      <p>A local system that reads credit card statements and answers questions about spending in plain English. Every question is routed before retrieval: arithmetic goes to SQL because it has to be exact, pattern questions go to vector search. The model formats the answer, it never calculates it.</p>
-      <p>Statements are sensitive enough that everything runs on the machine, with no external API. Measured across seven question types, embedding the merchant and category reached 80% accuracy, while adding the raw description dropped it to 73% because store numbers and transaction codes came along with the useful terms.</p>
-      <p class="tools">FastAPI · PostgreSQL · pgvector · Ollama · sentence-transformers</p>
-      <a class="out" href="https://github.com/madhura1396/finrag">Code and decision log</a>
-    </div>
+    <div class="grid">
+      <div class="project">
+        <h3>FinRAG</h3>
+        <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
+        <p>A local system that reads credit card statements and answers questions about spending in plain English. Every question is routed before retrieval: arithmetic goes to SQL because it has to be exact, pattern questions go to vector search. The model formats the answer, it never calculates it.</p>
+        <p>Statements are sensitive enough that everything runs on the machine, with no external API. Measured across seven question types, embedding the merchant and category reached 80% accuracy, while adding the raw description dropped it to 73% because store numbers and transaction codes came along with the useful terms.</p>
+        <p class="tools">FastAPI · PostgreSQL · pgvector · Ollama · sentence-transformers</p>
+        <a class="out" href="https://github.com/madhura1396/finrag">Code and decision log</a>
+      </div>
 
-    <div class="project">
-      <h3>PR Review Agent</h3>
-      <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
-      <p>A multi-agent code review system. An orchestrator routes chunks of a pull request to specialist agents for security, performance and style, then a critic agent reconciles what they found, strips duplicates and assigns severity before anything is posted. A human still approves the merge.</p>
-      <p>Traced with LangSmith and evaluated with DeepEval, so a change to a prompt has a measured effect rather than an assumed one.</p>
-      <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval · GitHub Actions</p>
-      <a class="out" href="https://github.com/madhura1396/pr-review-agent">Code</a>
-    </div>
+      <div class="project">
+        <h3>PR Review Agent</h3>
+        <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
+        <p>A multi-agent code review system. An orchestrator routes chunks of a pull request to specialist agents for security, performance and style, then a critic agent reconciles what they found, strips duplicates and assigns severity before anything is posted. A human still approves the merge.</p>
+        <p>Traced with LangSmith and evaluated with DeepEval, so a change to a prompt has a measured effect rather than an assumed one.</p>
+        <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval · GitHub Actions</p>
+        <a class="out" href="https://github.com/madhura1396/pr-review-agent">Code</a>
+      </div>
 
-    <div class="project">
-      <h3>Voice receptionist for a plumbing company</h3>
-      <p class="why">A flooded basement should never reach an AI.</p>
-      <p>A small business misses calls while its people are under a sink, and every missed call goes to whoever picks up next. The design started from the calls the owner actually gets: burst pipe, no water, water through the ceiling. Emergencies route straight to a person. The assistant books the routine work, which is most of the volume and the part where a mistake costs an appointment slot rather than someone's house.</p>
-      <p>A webhook turns unstructured call audio into structured booking records, so nothing has to be typed up afterwards.</p>
-      <p class="tools">Retell · Cloudflare Workers · Airtable</p>
-    </div>
+      <div class="project">
+        <h3>Voice receptionist</h3>
+        <p class="why">A flooded basement should never reach an AI.</p>
+        <p>A small business misses calls while its people are under a sink, and every missed call goes to whoever picks up next. The design started from the calls the owner actually gets: burst pipe, no water, water through the ceiling. Emergencies route straight to a person. The assistant books the routine work, which is most of the volume and the part where a mistake costs an appointment slot rather than someone's house.</p>
+        <p>A webhook turns unstructured call audio into structured booking records, so nothing has to be typed up afterwards.</p>
+        <p class="tools">Retell · Cloudflare Workers · Airtable</p>
+      </div>
 
-    <div class="project">
-      <h3>Portfolio notification agent</h3>
-      <p class="why">Retrieval, summarising and delivery should be able to fail separately.</p>
-      <p>Claude connected to a custom MCP server that exposes brokerage account data as callable tools, delivering plain English portfolio digests over Telegram. Scheduled jobs are kept independent, so a formatting failure in delivery does not take the summary down with it.</p>
-      <p class="tools">Claude · MCP · APScheduler · Telegram Bot API</p>
+      <div class="project">
+        <h3>Portfolio notification agent</h3>
+        <p class="why">Retrieval, summarising and delivery should be able to fail separately.</p>
+        <p>Claude connected to a custom MCP server that exposes brokerage account data as callable tools, delivering plain English portfolio digests over Telegram. Scheduled jobs are kept independent, so a formatting failure in delivery does not take the summary down with it.</p>
+        <p class="tools">Claude · MCP · APScheduler · Telegram Bot API</p>
+      </div>
     </div>
   </section>
 
-  <section id="experience">
-    <h2>Experience</h2>
+  <section id="experience" class="reveal">
+    <div class="sec-head"><span class="idx">02</span><h2>Experience</h2></div>
 
     <div class="job">
       <div class="role">
@@ -239,8 +291,8 @@
     </div>
   </section>
 
-  <section id="background">
-    <h2>Background</h2>
+  <section id="background" class="reveal">
+    <div class="sec-head"><span class="idx">03</span><h2>Background</h2></div>
 
     <div class="block">
       <h4>Education</h4>
@@ -257,7 +309,7 @@
       <p>Co-founded Unsung SheCodes, a community platform with 20+ interviews with AI and ML practitioners. Won the M&amp;T Tech Grant at the NextCorps AI Startup Jam, building an MVP in 72 hours after 25+ user interviews. I write about AI governance and social good at <a href="https://aitalks4good.substack.com">aitalks4good.substack.com</a>.</p>
     </div>
 
-    <div class="skills" style="margin-top:36px;">
+    <div class="skills">
       <div>
         <h4>Agents and LLMs</h4>
         <p>LangGraph, LangChain, MCP, AWS Bedrock, RAG and vector search, evaluation and tracing</p>
@@ -273,9 +325,9 @@
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>If you have a problem that is mostly people and partly software, I would like to hear it.</p>
+  <section id="contact" class="contact reveal">
+    <div class="sec-head"><span class="idx">04</span><h2>Contact</h2></div>
+    <p class="pitch">If you have a problem that is mostly people and partly software, I would like to hear it.</p>
     <p class="links">
       <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
       <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
@@ -286,5 +338,16 @@
   <footer>Canadian Permanent Resident · Cambridge, Ontario</footer>
 
 </div>
+
+<script>
+  (function(){
+    var els=document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
 </body>
 </html>
