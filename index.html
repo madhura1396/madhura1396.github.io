@@ -10,24 +10,35 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FAFAF7;
-    --ink:#1A1917;
-    --muted:#8B877E;
-    --line:#E9E6DE;
-    --accent:#4C7A5A;      /* used only for the "open to work" dot */
+    --bg:#FBF8F3;
+    --ink:#1E1B18;
+    --muted:#8B857A;
+    --line:#EAE4D9;
+    --accent:#4C7A5A;      /* the "open to work" dot */
+    --quote:#9C4A6B;       /* serif-italic subtitle accent */
+    --display:"Space Grotesk","Inter",sans-serif;
     --wrap:720px;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;background:var(--bg);color:var(--ink);
+    margin:0;color:var(--ink);
+    background:
+      radial-gradient(900px 620px at 88% -6%, rgba(232,150,110,.16), transparent 60%),
+      radial-gradient(820px 620px at -8% 10%, rgba(120,150,220,.14), transparent 58%),
+      radial-gradient(760px 640px at 60% 108%, rgba(150,190,150,.14), transparent 60%),
+      linear-gradient(180deg,#FCFAF6,#F5F4F0);
+    background-attachment:fixed;
     font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.7;
     -webkit-font-smoothing:antialiased;letter-spacing:-.006em;
   }
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
+  h1,h2,h3,.top .name,.contact p.pitch{font-family:var(--display);letter-spacing:-.02em;}
+  .tnode .why{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:18.5px;
+    line-height:1.42;color:var(--quote);margin:0 0 12px;max-width:44ch;}
   a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);
     transition:border-color .18s;}
   a:hover{border-color:var(--ink);}
@@ -222,21 +233,25 @@
     <div class="worktl">
       <div class="tnode rev">
         <h3><a href="https://github.com/madhura1396/finrag" target="_blank" rel="noopener">FinRAG</a></h3>
+        <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
         <p class="sub">FastAPI · PostgreSQL · pgvector · Ollama</p>
         <p>Reads credit card statements and answers spending questions in plain English. Arithmetic routes to SQL because it has to be exact; patterns go to vector search. Runs fully local — no external API.</p>
       </div>
       <div class="tnode rev">
         <h3><a href="https://github.com/madhura1396/pr-review-agent" target="_blank" rel="noopener">PR Review Agent</a></h3>
+        <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
         <p class="sub">LangGraph · LangChain · LangSmith · DeepEval</p>
         <p>A multi-agent code reviewer: specialists for security, performance and style; a critic reconciles, de-duplicates and assigns severity before anything posts. Traced and evaluated so prompt changes have measured effects.</p>
       </div>
       <div class="tnode rev">
         <h3>Voice receptionist</h3>
+        <p class="why">A flooded basement should never reach an AI.</p>
         <p class="sub">Retell · Cloudflare Workers · Airtable</p>
         <p>A voice agent for a plumbing business, designed from the calls the owner actually gets. Emergencies route straight to a person; the assistant books the routine work.</p>
       </div>
       <div class="tnode rev">
         <h3>Portfolio agent</h3>
+        <p class="why">Retrieval, summarising and delivery should be able to fail separately.</p>
         <p class="sub">Claude · MCP · APScheduler · Telegram</p>
         <p>Claude connected to a custom MCP server exposing brokerage data as callable tools, delivering plain-English digests over Telegram. Jobs stay independent, so a delivery hiccup never takes the summary down.</p>
       </div>
