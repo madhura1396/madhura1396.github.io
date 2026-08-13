@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madhura Anand — AI Engineer</title>
+<meta name="description" content="Madhura Anand builds AI agents and data systems for people who are not technical. Six years across AI engineering, analytics and data engineering.">
+<meta property="og:title" content="Madhura Anand — AI Engineer">
+<meta property="og:description" content="I build AI agents and data systems for people who are not technical.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EC;
+    --paper-2:#FBFAF5;
+    --ink:#2B2A26;
+    --ink-soft:#5F5C54;
+    --plum:#7B3355;
+    --sage:#6E7F63;
+    --rule:#DEDACB;
+    --wrap:760px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Karla",system-ui,sans-serif;font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 26px;}
+  a{color:var(--plum);}
+  a:focus-visible{outline:2px solid var(--plum);outline-offset:3px;border-radius:2px;}
+
+  /* nav */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(246,244,236,.93);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav .wrap{display:flex;gap:22px;align-items:center;height:52px;overflow-x:auto;}
+  nav a{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.09em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);white-space:nowrap;
+  }
+  nav a:hover{color:var(--plum);}
+  nav a.who{color:var(--ink);font-weight:500;margin-right:auto;}
+
+  /* hero */
+  header{padding:76px 0 34px;}
+  h1{
+    font-family:"Fraunces",Georgia,serif;font-weight:600;
+    font-size:clamp(40px,8vw,64px);line-height:1.02;letter-spacing:-.02em;margin:0 0 22px;
+  }
+  .lede{font-size:clamp(19px,2.6vw,22px);max-width:38ch;margin:0 0 30px;}
+  .lede em{font-family:"Fraunces",Georgia,serif;font-style:italic;color:var(--plum);}
+
+  .now{
+    border-left:3px solid var(--sage);padding:4px 0 4px 18px;margin:0 0 34px;max-width:52ch;
+  }
+  .now span{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--sage);margin-bottom:4px;
+  }
+  .now p{margin:0;color:var(--ink-soft);}
+
+  .links{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:"IBM Plex Mono",monospace;font-size:13px;}
+  .links a{text-decoration:none;border-bottom:1px solid var(--rule);padding-bottom:2px;}
+  .links a:hover{border-bottom-color:var(--plum);}
+
+  /* sections */
+  section{padding:56px 0;border-top:1px solid var(--rule);}
+  h2{
+    font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:0 0 34px;
+  }
+  h3{
+    font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:26px;
+    letter-spacing:-.01em;margin:0 0 4px;line-height:1.2;
+  }
+
+  /* projects */
+  .project{margin-bottom:52px;}
+  .project:last-child{margin-bottom:0;}
+  .why{
+    font-family:"Fraunces",Georgia,serif;font-style:italic;font-size:20px;
+    color:var(--plum);margin:12px 0 16px;max-width:46ch;line-height:1.45;
+  }
+  .project p{margin:0 0 14px;max-width:60ch;}
+  .tools{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);
+    letter-spacing:.02em;margin:0 0 12px;
+  }
+  .out{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;text-decoration:none;
+    border-bottom:1px solid var(--plum);padding-bottom:2px;
+  }
+
+  /* experience */
+  .role{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:baseline;margin-bottom:6px;}
+  .role h3{font-size:23px;}
+  .when{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-soft);white-space:nowrap;}
+  .where{font-family:"Karla",sans-serif;color:var(--ink-soft);margin:0 0 14px;}
+  .job{margin-bottom:44px;}
+  .job:last-child{margin-bottom:0;}
+  ul{margin:0 0 8px;padding-left:20px;max-width:62ch;}
+  li{margin-bottom:9px;}
+  li::marker{color:var(--sage);}
+
+  /* background */
+  .block{margin-bottom:30px;}
+  .block h4{
+    font-family:"Karla",sans-serif;font-weight:600;font-size:16px;margin:0 0 6px;
+  }
+  .block p{margin:0;color:var(--ink-soft);max-width:60ch;}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px 34px;}
+  .skills div h4{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--sage);font-weight:500;margin:0 0 6px;}
+  .skills div p{font-size:15.5px;color:var(--ink-soft);margin:0;}
+
+  /* contact */
+  .contact p{font-size:clamp(20px,3vw,26px);font-family:"Fraunces",Georgia,serif;
+    max-width:28ch;margin:0 0 24px;line-height:1.3;}
+  footer{padding:34px 0 60px;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    color:var(--ink-soft);letter-spacing:.04em;}
+
+  .reveal{opacity:0;transform:translateY(10px);animation:rise .65s cubic-bezier(.2,.7,.3,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none;}html{scroll-behavior:auto;}}
+  @media (max-width:600px){
+    header{padding:52px 0 28px;}
+    .role{grid-template-columns:1fr;}
+    section{padding:44px 0;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="who" href="#top">Madhura Anand</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#background">Background</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
+
+  <header class="reveal">
+    <h1>Madhura Anand</h1>
+    <p class="lede">I build AI systems for people who <em>do not work in tech</em>, and who have to trust the answer.</p>
+
+    <div class="now">
+      <span>Now</span>
+      <p>Building a voice agent that answers the phone for a plumbing business, and writing about where AI belongs in public services.</p>
+    </div>
+
+    <p class="links">
+      <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
+      <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
+      <a href="https://github.com/madhura1396">GitHub</a>
+      <a href="https://aitalks4good.substack.com">Writing</a>
+    </p>
+  </header>
+
+  <section id="work">
+    <h2>Selected work</h2>
+
+    <div class="project">
+      <h3>FinRAG</h3>
+      <p class="why">Nobody wants a chatbot that guesses at their bank balance.</p>
+      <p>A local system that reads credit card statements and answers questions about spending in plain English. Every question is routed before retrieval: arithmetic goes to SQL because it has to be exact, pattern questions go to vector search. The model formats the answer, it never calculates it.</p>
+      <p>Statements are sensitive enough that everything runs on the machine, with no external API. Measured across seven question types, embedding the merchant and category reached 80% accuracy, while adding the raw description dropped it to 73% because store numbers and transaction codes came along with the useful terms.</p>
+      <p class="tools">FastAPI · PostgreSQL · pgvector · Ollama · sentence-transformers</p>
+      <a class="out" href="https://github.com/madhura1396/finrag">Code and decision log</a>
+    </div>
+
+    <div class="project">
+      <h3>PR Review Agent</h3>
+      <p class="why">Four opinions on the same diff are worse than one, unless something reconciles them.</p>
+      <p>A multi-agent code review system. An orchestrator routes chunks of a pull request to specialist agents for security, performance and style, then a critic agent reconciles what they found, strips duplicates and assigns severity before anything is posted. A human still approves the merge.</p>
+      <p>Traced with LangSmith and evaluated with DeepEval, so a change to a prompt has a measured effect rather than an assumed one.</p>
+      <p class="tools">LangGraph · LangChain · Groq · LangSmith · DeepEval · GitHub Actions</p>
+      <a class="out" href="https://github.com/madhura1396/pr-review-agent">Code</a>
+    </div>
+
+    <div class="project">
+      <h3>Voice receptionist for a plumbing company</h3>
+      <p class="why">A flooded basement should never reach an AI.</p>
+      <p>A small business misses calls while its people are under a sink, and every missed call goes to whoever picks up next. The design started from the calls the owner actually gets: burst pipe, no water, water through the ceiling. Emergencies route straight to a person. The assistant books the routine work, which is most of the volume and the part where a mistake costs an appointment slot rather than someone's house.</p>
+      <p>A webhook turns unstructured call audio into structured booking records, so nothing has to be typed up afterwards.</p>
+      <p class="tools">Retell · Cloudflare Workers · Airtable</p>
+    </div>
+
+    <div class="project">
+      <h3>Portfolio notification agent</h3>
+      <p class="why">Retrieval, summarising and delivery should be able to fail separately.</p>
+      <p>Claude connected to a custom MCP server that exposes brokerage account data as callable tools, delivering plain English portfolio digests over Telegram. Scheduled jobs are kept independent, so a formatting failure in delivery does not take the summary down with it.</p>
+      <p class="tools">Claude · MCP · APScheduler · Telegram Bot API</p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="job">
+      <div class="role">
+        <h3>Data Analyst</h3>
+        <p class="when">Aug 2023 – Jun 2026</p>
+      </div>
+      <p class="where">City of Rochester, New York</p>
+      <ul>
+        <li>Deployed a four node agent on AWS Bedrock with a routing layer covering clarification, escalation and retrieval, plus a pre-flight classifier deciding what reached the model at all.</li>
+        <li>Built the retrieval layer behind it so policy answers stayed grounded in source documents, with escalation to a person as the answer for questions the agent should not handle alone.</li>
+        <li>Scoped with non-technical department staff what the agent should and should not do before building it, rather than after deployment.</li>
+        <li>Worked inside public sector constraints on records retention, access control and auditability, keeping logging and review paths in the design from the start.</li>
+        <li>Built SQL models consolidating multiple source systems into documented datasets, with validation and reconciliation checks that surfaced failures instead of letting them land in stakeholder tables.</li>
+        <li>Delivered Power BI dashboards on star and snowflake models so leadership reported against one set of definitions rather than divergent extracts.</li>
+        <li>Automated recurring reporting through Power Automate and Power Apps, reaching people inside the tools they already used.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="role">
+        <h3>Data Engineer</h3>
+        <p class="when">Oct 2018 – Jul 2021</p>
+      </div>
+      <p class="where">Accenture, Mumbai</p>
+      <ul>
+        <li>Built and maintained 50+ production pipelines in SAP BODS integrating more than 20 SAP and non-SAP systems, cutting transfer time by 30% through job level tuning and parallel processing.</li>
+        <li>Wrote reconciliation and validation into the pipelines themselves, holding 98% consistency across environments.</li>
+        <li>Deployed large scale integration workflows on SAP PI/PO, improving downstream accuracy by 25% and cutting reporting latency.</li>
+        <li>Built Power BI dashboards for C-suite stakeholders, gathering requirements directly from business owners.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="background">
+    <h2>Background</h2>
+
+    <div class="block">
+      <h4>Education</h4>
+      <p>MS Computer Science, Syracuse University (2023). BE Computer Engineering, University of Mumbai.</p>
+    </div>
+
+    <div class="block">
+      <h4>Certifications</h4>
+      <p>Microsoft Certified Power BI Data Analyst Associate. Applied Machine Learning, Columbia Engineering. Certified Scrum Product Owner.</p>
+    </div>
+
+    <div class="block">
+      <h4>Beyond the job</h4>
+      <p>Co-founded Unsung SheCodes, a community platform with 20+ interviews with AI and ML practitioners. Won the M&amp;T Tech Grant at the NextCorps AI Startup Jam, building an MVP in 72 hours after 25+ user interviews. I write about AI governance and social good at <a href="https://aitalks4good.substack.com">aitalks4good.substack.com</a>.</p>
+    </div>
+
+    <div class="skills" style="margin-top:36px;">
+      <div>
+        <h4>Agents and LLMs</h4>
+        <p>LangGraph, LangChain, MCP, AWS Bedrock, RAG and vector search, evaluation and tracing</p>
+      </div>
+      <div>
+        <h4>Data</h4>
+        <p>SQL, PostgreSQL, pgvector, dimensional modelling, SAP BODS, pandas, scikit-learn</p>
+      </div>
+      <div>
+        <h4>Building and shipping</h4>
+        <p>Python, FastAPI, Docker, AWS, GitHub Actions, Power BI, Power Automate</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>If you have a problem that is mostly people and partly software, I would like to hear it.</p>
+    <p class="links">
+      <a href="mailto:madhura.anand@outlook.com">madhura.anand@outlook.com</a>
+      <a href="https://www.linkedin.com/in/madhura-anand">LinkedIn</a>
+      <a href="https://github.com/madhura1396">GitHub</a>
+    </p>
+  </section>
+
+  <footer>Canadian Permanent Resident · Cambridge, Ontario</footer>
+
+</div>
+</body>
+</html>
