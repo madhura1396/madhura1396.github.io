@@ -155,9 +155,10 @@
   }
 
   .lifeintro{font-size:22px;color:var(--muted);max-width:48ch;margin:-24px 0 40px;}
-  .endmap{padding:40px 0 10px;}
-  .journeymap{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;
-    mix-blend-mode:multiply;}
+  .endmap{padding:30px 0 20px;width:100%;}
+  .journeymap{display:block;width:100%;height:auto;mix-blend-mode:multiply;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);}
 
   /* writing list */
   .item{padding:26px 0;border-top:1px solid var(--line);}
@@ -391,6 +392,10 @@
     </div>
   </section>
 
+  <div class="endmap rev">
+    <img class="journeymap" src="images/journey-map.jpg" alt="Hand-drawn map: India to USA to Canada">
+  </div>
+
   <section class="contact wrap" id="contact">
     <p class="label rev">Say hello</p>
     <p class="pitch rev">If you have a problem and want a solution, I'd like to hear it. And if not, I'm always up for meeting like-minded folks.</p>
@@ -402,10 +407,6 @@
       <a href="https://aitalks4good.substack.com" target="_blank" rel="noopener">Writing</a>
     </p>
   </section>
-
-  <div class="wrap endmap rev">
-    <img class="journeymap" src="images/journey-map.jpg" alt="Hand-drawn map: India to USA to Canada">
-  </div>
 
 
 </div>
