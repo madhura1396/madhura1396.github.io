@@ -24,13 +24,7 @@
     --wrap:1000px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-padding-top:70px;}
-  /* page-snap: every section + chapter is a full page that hard-locks like turning a page */
-  .hero,.block,.chapter,.dream,.contact{scroll-snap-align:start;scroll-snap-stop:always;
-    scroll-margin-top:70px;}
-  .hero,.block,.dream,.contact{min-height:100vh;}
-  .dream,.contact{display:flex;flex-direction:column;justify-content:center;}
-  @media(prefers-reduced-motion:reduce){html{scroll-snap-type:none;}}
+  html{scroll-behavior:smooth;}
   body{
     margin:0;color:var(--ink);
     background:
