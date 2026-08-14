@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800;900&family=Newsreader:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#FBF8F3;
@@ -20,7 +20,7 @@
     --accent:#4C7A5A;      /* the "open to work" dot */
     --quote:#9C4A6B;       /* serif-italic subtitle accent */
     --hot:#B4472B;         /* terracotta hero accent */
-    --display:"Schibsted Grotesk",system-ui,sans-serif;
+    --display:"Newsreader",Georgia,serif;
     --wrap:1000px;
   }
   *{box-sizing:border-box;}
@@ -33,8 +33,8 @@
       radial-gradient(820px 700px at 55% 104%, rgba(126,182,138,.30), transparent 60%),
       linear-gradient(180deg,#FCF7EF,#F1F3EF);
     background-attachment:fixed;
-    font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:19px;line-height:1.66;
-    -webkit-font-smoothing:antialiased;letter-spacing:-.008em;
+    font-family:"Inter",system-ui,sans-serif;font-size:19px;line-height:1.66;
+    -webkit-font-smoothing:antialiased;letter-spacing:-.006em;
   }
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;}
   h1,h2,h3,.top .name,.contact p.pitch{font-family:var(--display);letter-spacing:-.02em;}
@@ -67,8 +67,8 @@
     text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 26px;}
   .kicker .kd{width:8px;height:8px;border-radius:50%;background:var(--quote);
     box-shadow:0 0 0 4px rgba(156,74,107,.16);}
-  .big3{font-family:var(--display);font-weight:700;font-size:clamp(66px,11.5vw,138px);
-    line-height:.9;letter-spacing:-.04em;margin:0 0 32px;}
+  .big3{font-family:var(--display);font-weight:600;font-size:clamp(66px,11.5vw,138px);
+    line-height:.92;letter-spacing:-.02em;margin:0 0 32px;}
   .big3 em{font-style:normal;color:var(--quote);}
   .hero .lede{font-size:22px;color:var(--muted);max-width:50ch;margin:0 0 30px;line-height:1.5;}
   .hero .lede b{color:var(--ink);font-weight:500;}
