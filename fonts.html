@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Font options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Inter:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Bricolage+Grotesque:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FBF8F3;--ink:#1E1B18;--muted:#8B857A;--line:#EAE4D9;--quote:#9C4A6B;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);padding:40px 24px 80px;
+    font-family:Inter,system-ui,sans-serif;}
+  .wrap{max-width:820px;margin:0 auto;}
+  .intro{font-size:16px;color:var(--muted);max-width:60ch;margin:0 0 40px;}
+  .opt{border-top:1px solid var(--line);padding:36px 0;}
+  .tag{font-family:"Space Grotesk",monospace;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--quote);margin:0 0 18px;font-weight:500;}
+  .big{font-weight:800;font-size:clamp(44px,8vw,84px);line-height:.92;letter-spacing:-.04em;margin:0 0 4px;}
+  .big em{font-style:normal;color:var(--quote);}
+  h2{font-weight:700;font-size:28px;letter-spacing:-.02em;margin:20px 0 8px;}
+  p.body{font-size:18px;line-height:1.6;color:var(--ink);max-width:56ch;margin:0;}
+  p.body b{font-weight:600;}
+
+  /* A: Schibsted Grotesk (current) */
+  .fA .big,.fA h2,.fA p{font-family:"Schibsted Grotesk",sans-serif;}
+  /* B: Inter */
+  .fB .big,.fB h2,.fB p{font-family:"Inter",sans-serif;}
+  /* C: Space Grotesk headings + Inter body */
+  .fC .big,.fC h2{font-family:"Space Grotesk",sans-serif;}
+  .fC p{font-family:"Inter",sans-serif;}
+  /* D: Manrope */
+  .fD .big,.fD h2,.fD p{font-family:"Manrope",sans-serif;}
+  /* E: Bricolage Grotesque headings + Inter body */
+  .fE .big,.fE h2{font-family:"Bricolage Grotesque",sans-serif;}
+  .fE p{font-family:"Inter",sans-serif;}
+  /* F: Newsreader serif headings + Inter body */
+  .fF .big{font-family:"Newsreader",serif;font-weight:600;letter-spacing:-.02em;}
+  .fF h2{font-family:"Newsreader",serif;font-weight:600;}
+  .fF p{font-family:"Inter",sans-serif;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="intro">Same content in six typefaces. Scroll through, then tell me the letter you want (A–F). I'll apply only that one to your real site. Nothing here changes the live portfolio.</p>
+
+  <div class="opt fA">
+    <p class="tag">A · Schibsted Grotesk (current)</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. A neutral, modern grotesque.</p>
+  </div>
+
+  <div class="opt fB">
+    <p class="tag">B · Inter</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. The classic clean, neutral workhorse.</p>
+  </div>
+
+  <div class="opt fC">
+    <p class="tag">C · Space Grotesk headlines + Inter body</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Techy, characterful headline; clean body.</p>
+  </div>
+
+  <div class="opt fD">
+    <p class="tag">D · Manrope</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Softer, friendly, modern-professional.</p>
+  </div>
+
+  <div class="opt fE">
+    <p class="tag">E · Bricolage Grotesque headlines + Inter body</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. A distinctive, slightly quirky display face.</p>
+  </div>
+
+  <div class="opt fF">
+    <p class="tag">F · Newsreader serif headlines + Inter body</p>
+    <p class="big">Builds. Writes. <em>Wonders.</em></p>
+    <h2>Teaching a machine to find justice</h2>
+    <p class="body">I build AI systems for people who <b>don't work in tech</b>, and who have to trust the answer. Editorial, magazine-like, warmer.</p>
+  </div>
+</div>
+</body>
+</html>
