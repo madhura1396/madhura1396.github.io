@@ -176,10 +176,14 @@
   .muse em{font-style:normal;font-family:inherit;color:var(--quote);font-weight:600;}
 
   /* contact */
-  .contact{padding:56px 0 40px;border-top:1px solid var(--line);}
-  .contact p.pitch{font-weight:500;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.02em;
-    line-height:1.25;max-width:20ch;margin:0 0 30px;}
-  .contact .links a{font-size:15px;margin-right:22px;}
+  .contact{padding:80px 0 96px;border-top:1px solid var(--line);text-align:center;}
+  .contact .label{margin-bottom:22px;}
+  .contact p.pitch{font-weight:600;font-size:clamp(28px,4.2vw,46px);letter-spacing:-.025em;
+    line-height:1.16;max-width:22ch;margin:0 auto 36px;}
+  .contact .links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0;}
+  .contact .links a{font-size:15px;border:1px solid var(--line);border-radius:999px;
+    padding:11px 22px;margin:0;transition:border-color .18s,background .18s,color .18s;}
+  .contact .links a:hover{border-color:var(--ink);background:var(--ink);color:var(--bg);}
   footer{padding:70px 0;color:var(--muted);font-size:13px;}
 
   .rev{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;}
