@@ -27,7 +27,8 @@
   html{scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-padding-top:70px;}
   /* page-snap: every section + chapter is a full page that hard-locks like turning a page */
   .hero,.block,.chapter,.dream,.contact{scroll-snap-align:start;scroll-snap-stop:always;
-    scroll-margin-top:70px;min-height:100vh;}
+    scroll-margin-top:70px;}
+  .hero,.block,.dream,.contact{min-height:100vh;}
   .dream,.contact{display:flex;flex-direction:column;justify-content:center;}
   @media(prefers-reduced-motion:reduce){html{scroll-snap-type:none;}}
   body{
@@ -114,13 +115,13 @@
 
   /* journey timeline */
   .journey{padding:44px 0 30px;border-top:1px solid var(--line);}
-  .chapter{display:grid;grid-template-columns:88px 1fr;gap:34px;align-items:center;
-    align-content:center;padding:0;position:relative;}
+  .chapter{display:grid;grid-template-columns:88px 1fr;gap:34px;align-items:start;
+    padding:0 0 72px;position:relative;}
   .chapter:last-child{padding-bottom:0;}
   /* the spine: a line down the centre of the avatar column */
   .chapter::before{content:"";position:absolute;left:43px;top:8px;bottom:0;width:2px;
     background:var(--line);}
-  .chapter:last-child::before{bottom:auto;height:50%;}
+  .chapter:last-child::before{bottom:auto;height:88px;}
   .avatar{width:88px;height:88px;border-radius:50%;overflow:hidden;background:var(--bg);
     position:relative;z-index:1;box-shadow:0 0 0 6px var(--bg);}
   .avatar img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
