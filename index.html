@@ -25,6 +25,13 @@
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
+  @media print{
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+    .rev{opacity:1 !important;transform:none !important;}
+    body{background-attachment:scroll !important;}
+    html{scroll-behavior:auto;}
+    .chapter,.tnode,.item,.muse{break-inside:avoid;}
+  }
   body{
     margin:0;color:var(--ink);
     background:
